@@ -4,7 +4,7 @@ export default function Software() {
             <section className="section">
                 <div className="container">
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem', alignItems: 'center' }}>
-                        <div>
+                        <div className="glass" style={{ padding: '2.5rem', borderRadius: 'var(--radius)' }}>
                             <h1 className="text-5xl font-black mb-6">Agentic AI <br /><span className="gradient-text">Frameworks</span></h1>
                             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                                 Our proprietary software framework enables the transition from static automation to autonomous ecosystems.
@@ -57,6 +57,32 @@ export default function Software() {
                                 </div>
                             </div>
                             <button className="btn-primary w-full mt-8">Technical Whitepaper</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="section" style={{ borderTop: '1px solid var(--border)' }}>
+                <div className="container">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl font-bold mb-4">Enterprise-Grade Features</h2>
+                        <p className="text-gray-500 max-w-2xl mx-auto">Built from the ground up for security, compliance, and limitless extensibility.</p>
+                    </div>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        <div className="glass hover-scale" style={{ padding: '2.5rem', borderRadius: 'var(--radius)', transition: 'transform 0.3s ease' }}>
+                            <div className="text-4xl mb-6">🔌</div>
+                            <h3 className="text-xl font-bold mb-3">Seamless Integrations</h3>
+                            <p className="text-sm text-gray-600 leading-relaxed">Connects directly into your existing ERPs, CRMs, and custom databases via standardized, secure API gateways.</p>
+                        </div>
+                        <div className="glass hover-scale" style={{ padding: '2.5rem', borderRadius: 'var(--radius)', transition: 'transform 0.3s ease' }}>
+                            <div className="text-4xl mb-6">🔒</div>
+                            <h3 className="text-xl font-bold mb-3">Zero-Trust Security</h3>
+                            <p className="text-sm text-gray-600 leading-relaxed">End-to-end encryption with granular role-based access control (RBAC) over what data your agents can query and manipulate.</p>
+                        </div>
+                        <div className="glass hover-scale" style={{ padding: '2.5rem', borderRadius: 'var(--radius)', transition: 'transform 0.3s ease' }}>
+                            <div className="text-4xl mb-6">🧠</div>
+                            <h3 className="text-xl font-bold mb-3">Dynamic Memory</h3>
+                            <p className="text-sm text-gray-600 leading-relaxed">Agents uniquely retain contextual memory across sessions and complex workflows, enabling highly personalized and accurate reasoning.</p>
                         </div>
                     </div>
                 </div>

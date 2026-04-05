@@ -102,10 +102,10 @@ export default function Navbar() {
                     <div className="mobile-overlay" onClick={() => setMobileMenuOpen(false)} />
                     <div className="mobile-panel">
                         <div className="mobile-panel-header">
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }} onClick={() => setMobileMenuOpen(false)}>
                                 <Image src="/chatbot-logo.png" alt="Logo" width={28} height={28} style={{ borderRadius: '6px' }} />
                                 <span className="logo-text" style={{ fontSize: '1.25rem' }}>GraphCenter</span>
-                            </div>
+                            </Link>
                             <button onClick={() => setMobileMenuOpen(false)} style={{ background: '#f3f4f6', border: 'none', cursor: 'pointer', padding: '8px', borderRadius: '50%', display: 'flex' }}>
                                 <X size={20} color="#4b5563" />
                             </button>

@@ -1,10 +1,11 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer() {
     return (
         <footer style={{ padding: '4rem 0', borderTop: '1px solid var(--border)', textAlign: 'center' }}>
             <div className="container">
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: '1.5rem' }}>
+                <Link href="/" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: '1.5rem', textDecoration: 'none' }}>
                     <Image
                         src="/chatbot-logo.png"
                         alt="GraphCenter Logo"
@@ -16,7 +17,7 @@ export default function Footer() {
                         }}
                     />
                     <span style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)' }}>GraphCenter</span>
-                </div>
+                </Link>
                 <p style={{ color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto 1.5rem' }}>
                     Our core expertise spans robust systems architecture, high-velocity cloud and data engineering, and bespoke software development designed for seamless integration.
                     By deploying specialized AI agents as a digital workforce, we ensure your technology is built for the scale of thought and as ambitious as your vision.

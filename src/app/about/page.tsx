@@ -42,6 +42,7 @@ export default function About() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.6 }}
                                 viewport={{ once: true }}
+                                className="glass" style={{ padding: '2.5rem', borderRadius: 'var(--radius)' }}
                             >
                                 <h2 className="text-2xl sm:text-3xl font-bold mb-4 md:mb-6 leading-tight">The "Scale of Thought"</h2>
                                 <p className="text-gray-600 text-base leading-relaxed mb-5">
@@ -66,7 +67,7 @@ export default function About() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.6 }}
                                 viewport={{ once: true }}
-                                className="glass p-6 sm:p-8 md:p-10 rounded-2xl md:rounded-3xl border border-blue-100 shadow-xl"
+                                className="glass" style={{ padding: '2.5rem', borderRadius: 'var(--radius)' }}
                             >
                                 <h3 className="text-xl sm:text-2xl font-bold mb-6 md:mb-8">Core Architectural Values</h3>
                                 <div className="space-y-6">
