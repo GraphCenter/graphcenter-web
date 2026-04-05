@@ -425,3 +425,43 @@ h4 {
     transform: rotate(360deg);
   }
 }
+
+/* Navbar Responsiveness Utilities */
+@media (max-width: 1023px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+  .mobile-menu-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+  .mobile-menu-panel {
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+}
+
+/* Enhanced UI Utilities */
+.text-gradient {
+  background: linear-gradient(90deg, #0052cc, #00b2ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 82, 204, 0.4);
+}
