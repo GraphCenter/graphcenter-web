@@ -7,9 +7,9 @@ export default function Pricing() {
                 <div className="container">
                     <h2 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '4rem' }}>Predictable Pricing</h2>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))', gap: '2rem', maxWidth: '1000px', margin: '0 auto' }}>
-                        <PricingCard tier="Starter" price="M 950" features={['Up to 5 Agents', 'Access up to 2 business domains', 'Standard Support', 'Basic ERP Integration']} />
-                        <PricingCard tier="Pro" price="M 4,750" features={['Unlimited Agents', 'Access up to 5 business domains', 'Priority Support', 'Full API Access', 'Custom Workflows']} isFeatured />
-                        <PricingCard tier="Enterprise" price="Custom" features={['Custom Agent Allocation', 'Unlimited business domains', 'Dedicated Infrastructure', 'SLA Guarantees', 'On-premise Options']} />
+                        <PricingCard tier="Starter" price="M 950" features={['Up to 3 user accounts', 'Up to 5 AI Agents', 'Access up to 2 business domains', 'Standard Support', 'Basic ERP Integration']} />
+                        <PricingCard tier="Pro" price="M 4,750" features={['Up to 20 user accounts', 'Unlimited AI Agents', 'Access up to 5 business domains', 'Priority Support', 'Full API Access', 'Custom Workflows']} isFeatured />
+                        <PricingCard tier="Enterprise" price="Custom" features={['Unlimited user accounts', 'Custom Agent Allocation', 'Unlimited business domains', 'Dedicated Infrastructure', 'SLA Guarantees', 'On-premise Options']} />
                     </div>
                 </div>
             </section>

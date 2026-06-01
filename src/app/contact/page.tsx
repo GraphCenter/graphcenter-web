@@ -34,11 +34,15 @@ export default function ContactPage() {
                         </div>
                         <div className="p-6 border-x border-gray-100">
                             <h4 className="font-bold text-lg mb-2">Global Headquarters</h4>
-                            <p className="text-gray-500">123 AI Boulevard, Maseru, Lesotho</p>
+                            <p className="text-gray-500">Mohalalitoe, Maseru, Lesotho</p>
                         </div>
                         <div className="p-6">
                             <h4 className="font-bold text-lg mb-2">Direct Inquiry</h4>
-                            <p className="text-gray-500">+1 (555) GRAPH-AI</p>
+                            <p className="text-gray-500">
+                                <a href="tel:+26657888155" style={{ color: 'inherit', textDecoration: 'none' }}>
+                                    +266 578 881 55
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
