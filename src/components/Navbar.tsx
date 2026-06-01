@@ -33,6 +33,8 @@ export default function Navbar() {
         { href: '/about', label: 'About' },
         { href: '/services', label: 'Services' },
         { href: '/software', label: 'Software' },
+        { href: '/domains', label: 'Platform Domains' },
+        { href: '/architecture', label: 'System Architecture' },
         { href: '/pricing', label: 'Pricing' },
         { href: '/contact', label: 'Contact' },
     ];

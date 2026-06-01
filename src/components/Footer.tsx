@@ -22,6 +22,15 @@ export default function Footer() {
                     Our core expertise spans robust systems architecture, high-velocity cloud and data engineering, and bespoke software development designed for seamless integration.
                     By deploying specialized AI agents as a digital workforce, we ensure your technology is built for the scale of thought and as ambitious as your vision.
                 </p>
+                <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginBottom: '1.5rem', fontSize: '0.85rem', fontWeight: 600, color: 'var(--primary)', flexWrap: 'wrap' }}>
+                    <Link href="/about" className="nav-link">About</Link>
+                    <Link href="/services" className="nav-link">Services</Link>
+                    <Link href="/software" className="nav-link">Software</Link>
+                    <Link href="/domains" className="nav-link">Platform Domains</Link>
+                    <Link href="/architecture" className="nav-link">System Architecture</Link>
+                    <Link href="/pricing" className="nav-link">Pricing</Link>
+                    <Link href="/contact" className="nav-link">Contact</Link>
+                </div>
                 <p style={{ color: 'var(--text-muted)' }}>&copy; 2026 GraphCenter Inc. All rights reserved.</p>
             </div>
         </footer>

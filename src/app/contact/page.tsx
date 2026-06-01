@@ -34,7 +34,7 @@ export default function ContactPage() {
                         </div>
                         <div className="p-6 border-x border-gray-100">
                             <h4 className="font-bold text-lg mb-2">Global Headquarters</h4>
-                            <p className="text-gray-500">123 AI Boulevard, Tech Valley</p>
+                            <p className="text-gray-500">123 AI Boulevard, Maseru, Lesotho</p>
                         </div>
                         <div className="p-6">
                             <h4 className="font-bold text-lg mb-2">Direct Inquiry</h4>
