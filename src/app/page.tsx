@@ -16,8 +16,8 @@ export default function Home() {
           <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto 3rem', lineHeight: 1.6 }}>
             Architecting the Next Generation of Autonomous Enterprise Ecosystems. At GraphCenter, we engineer intelligence by providing the systems architecture and cloud solutions that allow enterprises to thrive at scale.
           </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-            <Link href="/services" className="btn-primary" style={{ fontSize: '1.1rem', textDecoration: 'none' }}>Our Services</Link>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/services" className="btn-primary" style={{ textDecoration: 'none' }}>Our Services</Link>
             <Link href="/software" className="glass" style={{ padding: '0.8rem 2rem', borderRadius: '30px', fontWeight: 600, border: '1px solid var(--border)', textDecoration: 'none' }}>Explore Software</Link>
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function Home() {
           <p className="text-gray-500 mb-12 max-w-xl mx-auto">
             Discover how our specialized architectural frameworks can accelerate your transition to an AI-native digital workforce.
           </p>
-          <Link href="/contact" className="btn-primary" style={{ fontSize: '1.2rem', padding: '1rem 3rem' }}>Start the Conversation</Link>
+          <Link href="/contact" className="btn-primary btn-cta" style={{ textDecoration: 'none' }}>Start the Conversation</Link>
         </div>
       </section>
     </main>

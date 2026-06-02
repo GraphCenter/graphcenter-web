@@ -87,6 +87,21 @@ h4 {
   box-shadow: 0 15px 25px -5px rgba(0, 82, 204, 0.4);
 }
 
+/* Large CTA button — responsive sizing */
+.btn-cta {
+  font-size: 1.2rem;
+  padding: 1rem 3rem;
+}
+
+@media (max-width: 480px) {
+  .btn-cta {
+    font-size: 1rem;
+    padding: 0.8rem 1.75rem;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 .btn-secondary {
   background: white;
   color: var(--primary);
