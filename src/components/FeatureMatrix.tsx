@@ -137,7 +137,7 @@ export default function FeatureMatrix() {
     return (
         <div style={{ width: '100%' }}>
             <style dangerouslySetInnerHTML={{__html: `
-                .matrix-card { background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 2rem; }
+                .matrix-card { background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 2rem; overflow-wrap: break-word; min-width: 0; }
                 .search-bar-wrapper { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
                 .search-input-container { position: relative; flex-grow: 1; min-width: 280px; }
                 .search-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }

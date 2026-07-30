@@ -21,7 +21,7 @@ export default function DomainsPage() {
                     .domain-grid { grid-template-columns: repeat(3, 1fr); }
                 }
                 
-                .domain-card { background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+                .domain-card { background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden; overflow-wrap: break-word; min-width: 0; display: flex; flex-direction: column; }
                 .domain-card:hover { transform: translateY(-5px); box-shadow: 0 20px 30px rgba(0, 82, 204, 0.08); border-color: var(--primary); }
                 
                 .domain-icon-wrapper { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem; }
@@ -29,11 +29,13 @@ export default function DomainsPage() {
                 .domain-icon-wrapper.technical { background: #faf5ff; color: #6b21a8; border: 1px solid #f3e8ff; }
                 .domain-icon-wrapper.infrastructure { background: #ecfdf5; color: #047857; border: 1px solid #d1fae5; }
                 
-                .tech-specs-box { background: #f8fafc; border-radius: 8px; border: 1px solid var(--border); padding: 1.25rem; font-family: monospace; font-size: 0.8rem; color: #334155; margin-top: auto; }
+                .tech-specs-box { background: #f8fafc; border-radius: 8px; border: 1px solid var(--border); padding: 1.25rem; font-family: monospace; font-size: 0.8rem; color: #334155; margin-top: auto; overflow-wrap: break-word; }
                 .tech-specs-box h5 { font-family: inherit; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.5px; font-weight: 700; }
                 .tech-specs-list { list-style: none; padding: 0; margin: 0; }
-                .tech-specs-list li { display: flex; justify-content: space-between; border-bottom: 1px dashed rgba(0,0,0,0.06); padding: 0.3rem 0; }
+                .tech-specs-list li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 0.75rem; border-bottom: 1px dashed rgba(0,0,0,0.06); padding: 0.3rem 0; }
                 .tech-specs-list li:last-child { border-bottom: none; }
+                .tech-specs-list li span { min-width: 0; overflow-wrap: break-word; }
+                .tech-specs-list li span:last-child { text-align: right; }
                 
                 .code-pill { background: #eff6ff; color: var(--primary); padding: 0.15rem 0.4rem; border-radius: 4px; font-family: monospace; font-weight: 600; font-size: 0.75rem; }
                 

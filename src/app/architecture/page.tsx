@@ -65,13 +65,13 @@ export default function ArchitecturePage() {
                     .spec-grid { grid-template-columns: 1fr 1fr; }
                 }
                 
-                .flow-card { background: white; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 2rem; position: relative; }
+                .flow-card { background: white; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 2rem; position: relative; overflow-wrap: break-word; min-width: 0; }
                 .flow-step { display: flex; gap: 1rem; margin-bottom: 1.5rem; position: relative; }
                 .flow-step:last-child { margin-bottom: 0; }
                 .flow-step:not(:last-child)::after { content: ''; position: absolute; left: 16px; top: 32px; bottom: -20px; width: 2px; background: #e2e8f0; }
                 
                 .step-number { width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: var(--primary); font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
-                .step-content { flex-grow: 1; }
+                .step-content { flex-grow: 1; min-width: 0; }
                 .step-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; display: flex; align-items: center; gap: 6px; }
                 .step-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
                 
@@ -80,7 +80,7 @@ export default function ArchitecturePage() {
                     .db-grid { grid-template-columns: repeat(3, 1fr); }
                 }
                 
-                .db-card { background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); padding: 2rem; position: relative; transition: all 0.2s; }
+                .db-card { background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); padding: 2rem; position: relative; transition: all 0.2s; overflow-wrap: break-word; min-width: 0; }
                 .db-card:hover { transform: translateY(-3px); border-color: var(--primary); }
                 .db-badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; font-family: monospace; }
                 .db-badge.hot { background: #fef2f2; color: #dc2626; border: 1px solid #fee2e2; }
