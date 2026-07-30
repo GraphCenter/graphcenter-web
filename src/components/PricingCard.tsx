@@ -31,13 +31,12 @@ export default function PricingCard({ tier, price, features, isFeatured = false 
     };
 
     return (
-        <div className={isFeatured ? "" : "glass"} style={{
+        <div className={isFeatured ? "sm:scale-105" : "glass"} style={{
             padding: '3rem 2rem',
             borderRadius: 'var(--radius)',
             textAlign: 'center',
             border: isFeatured ? '2px solid var(--primary)' : '1px solid var(--border)',
             background: isFeatured ? 'white' : 'var(--glass)',
-            transform: isFeatured ? 'scale(1.05)' : 'none',
             boxShadow: isFeatured ? '0 20px 40px rgba(0, 82, 204, 0.15)' : 'var(--shadow)',
             display: 'flex',
             flexDirection: 'column',

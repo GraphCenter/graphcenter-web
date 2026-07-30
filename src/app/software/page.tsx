@@ -1,9 +1,9 @@
 export default function Software() {
     return (
-        <main style={{ paddingTop: '8rem' }}>
+        <main className="pt-20 md:pt-32">
             <section className="section">
                 <div className="container">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(400px, 100%), 1fr))', gap: '4rem', alignItems: 'center' }}>
                         <div className="glass" style={{ padding: '2.5rem', borderRadius: 'var(--radius)' }}>
                             <h1 className="text-5xl font-black mb-6">Agentic AI <br /><span className="gradient-text">Frameworks</span></h1>
                             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
@@ -90,7 +90,7 @@ export default function Software() {
 
             <section className="section" style={{ borderTop: '1px solid var(--border)' }}>
                 <div className="container">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(400px, 100%), 1fr))', gap: '4rem', alignItems: 'center' }}>
                         <div className="glass" style={{ padding: '2.5rem', borderRadius: 'var(--radius)' }}>
                             <h2 className="text-4xl font-black mb-6">Assistants That <br /><span className="gradient-text">Act, Not Just Chat</span></h2>
                             <p className="text-xl text-gray-600 mb-8 leading-relaxed">

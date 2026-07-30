@@ -8,7 +8,7 @@ export default function DomainsPage() {
     const [activeTab, setActiveTab] = useState<'commercial' | 'technical' | 'infrastructure'>('commercial');
 
     return (
-        <main style={{ paddingTop: '8rem', minHeight: '100vh', background: 'linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)' }}>
+        <main className="pt-20 md:pt-32" style={{ minHeight: '100vh', background: 'linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)' }}>
             <style dangerouslySetInnerHTML={{__html: `
                 .domains-hero { text-align: center; padding: 4rem 0 2rem; }
                 .tab-bar { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }

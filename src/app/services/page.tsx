@@ -10,7 +10,7 @@ function FeatureCard({ title, description, icon }: { title: string, description:
 
 export default function Services() {
     return (
-        <main style={{ paddingTop: '8rem' }}>
+        <main className="pt-20 md:pt-32">
             <section className="section">
                 <div className="container">
                     <div className="text-center mb-12">

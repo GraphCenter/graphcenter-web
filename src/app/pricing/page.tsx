@@ -2,7 +2,7 @@ import PricingCard from "@/components/PricingCard";
 
 export default function Pricing() {
     return (
-        <main style={{ paddingTop: '8rem' }}>
+        <main className="pt-20 md:pt-32">
             <section className="section">
                 <div className="container">
                     <h2 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '4rem' }}>Predictable Pricing</h2>

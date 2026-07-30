@@ -56,7 +56,7 @@ export default function ArchitecturePage() {
     };
 
     return (
-        <main style={{ paddingTop: '8rem', minHeight: '100vh', background: 'linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)' }}>
+        <main className="pt-20 md:pt-32" style={{ minHeight: '100vh', background: 'linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)' }}>
             <style dangerouslySetInnerHTML={{__html: `
                 .arch-header { text-align: center; padding: 4rem 0 2rem; }
                 .spec-section { padding: 4rem 0; border-top: 1px solid var(--border); }
@@ -88,7 +88,7 @@ export default function ArchitecturePage() {
                 .db-badge.cold { background: #eff6ff; color: #2563eb; border: 1px solid #dbeafe; }
                 
                 .code-viewer { background: #0f172a; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid #334155; }
-                .code-header { background: #1e293b; padding: 0.75rem 1.25rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; }
+                .code-header { background: #1e293b; padding: 0.75rem 1.25rem; display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; flex-wrap: wrap; border-bottom: 1px solid #334155; }
                 .code-pre { margin: 0; padding: 1.5rem; overflow-x: auto; color: #cbd5e1; font-family: monospace; font-size: 0.825rem; line-height: 1.5; text-align: left; }
                 
                 .schema-btn { padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; cursor: pointer; border: 1px solid transparent; background: transparent; color: #94a3b8; font-size: 0.8rem; font-family: inherit; transition: all 0.2s; }
@@ -227,7 +227,7 @@ export default function ArchitecturePage() {
 
                             <div className="code-viewer">
                                 <div className="code-header">
-                                    <div style={{ display: 'flex', gap: '0.5rem' }}>
+                                    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                                         <button
                                             className={`schema-btn ${selectedSchema === 'acdoca' ? 'active' : ''}`}
                                             onClick={() => setSelectedSchema('acdoca')}
