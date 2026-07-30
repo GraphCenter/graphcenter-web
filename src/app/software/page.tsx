@@ -87,6 +87,53 @@ export default function Software() {
                     </div>
                 </div>
             </section>
+
+            <section className="section" style={{ borderTop: '1px solid var(--border)' }}>
+                <div className="container">
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+                        <div className="glass" style={{ padding: '2.5rem', borderRadius: 'var(--radius)' }}>
+                            <h2 className="text-4xl font-black mb-6">Assistants That <br /><span className="gradient-text">Act, Not Just Chat</span></h2>
+                            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                                Every page in the platform registers its live data and available actions with the embedded assistant. Ask it to make a change and it proposes the action with a full preview of the resulting state &mdash; you confirm or discard before anything is committed.
+                            </p>
+
+                            <div className="space-y-6 mb-12">
+                                <div className="flex gap-4">
+                                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">🖼️</div>
+                                    <div>
+                                        <h4 className="font-bold">Renders Its Own UI</h4>
+                                        <p className="text-sm text-gray-500">Beyond text, the assistant can render live charts, metric cards, and interactive components directly into the conversation, wired to real platform actions.</p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4">
+                                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">📱</div>
+                                    <div>
+                                        <h4 className="font-bold">Native Mobile Companion</h4>
+                                        <p className="text-sm text-gray-500">GraphControl, our native Android &amp; iOS companion app, brings the same assistant, biometric app-lock, and real-time notifications to the field.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="glass p-12 rounded-3xl border border-gray-100 text-center">
+                            <div className="text-6xl mb-6">💬</div>
+                            <h3 className="text-2xl font-bold mb-4">Conversational Control Plane</h3>
+                            <p className="text-gray-500 mb-8">An embedded assistant that doesn&apos;t just answer questions &mdash; it proposes changes, shows you the before/after, and only commits when you say go.</p>
+                            <div className="space-y-3">
+                                <div className="p-4 bg-white/50 rounded-xl border border-blue-50 text-left text-sm">
+                                    <strong>✓ Live Before/After Preview</strong>
+                                </div>
+                                <div className="p-4 bg-white/50 rounded-xl border border-blue-50 text-left text-sm">
+                                    <strong>✓ Agent-Generated Dynamic UI</strong>
+                                </div>
+                                <div className="p-4 bg-white/50 rounded-xl border border-blue-50 text-left text-sm">
+                                    <strong>✓ Voice &amp; Text Interaction</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     );
 }

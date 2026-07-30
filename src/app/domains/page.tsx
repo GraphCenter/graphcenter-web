@@ -456,6 +456,39 @@ export default function DomainsPage() {
                                 </ul>
                             </div>
                         </div>
+
+                        {/* Micro-Frontend Composable Shell */}
+                        <div className="domain-card">
+                            <div className="domain-icon-wrapper infrastructure">
+                                🧩
+                            </div>
+                            <h3 className="feature-title">Composable Micro-Frontend Shell &amp; Cross-Boundary State Sync</h3>
+                            <p className="feature-desc">
+                                Module Federation-based host shell that loads independently deployable domain remotes at runtime, letting teams ship business-unit experiences without a monolithic frontend release.
+                            </p>
+                            <ul className="bullet-list">
+                                <li>
+                                    <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
+                                    <span>Host shell dynamically loads remote bundles (e.g. Accounting) at runtime with only shared dependencies deduplicated at the edge.</span>
+                                </li>
+                                <li>
+                                    <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
+                                    <span>Singleton page-context bridge shares live data, notifications, and AI-proposed actions seamlessly across the federation boundary.</span>
+                                </li>
+                                <li>
+                                    <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
+                                    <span>Each domain remote ships and deploys on its own cadence, isolated from the host&apos;s release cycle.</span>
+                                </li>
+                            </ul>
+                            <div className="tech-specs-box">
+                                <h5>Federation Spec</h5>
+                                <ul className="tech-specs-list">
+                                    <li><span>Pattern:</span> <span>Host + Independent Remotes</span></li>
+                                    <li><span>State Bridge:</span> <span>Shared Singleton Context</span></li>
+                                    <li><span>Deploy Model:</span> <span>Per-Domain Release Cadence</span></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 )}
 
