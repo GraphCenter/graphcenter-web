@@ -403,15 +403,15 @@ export default function DomainsPage() {
                             <ul className="bullet-list">
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>**Hot Tier:** In-Memory storage using Write-Ahead Logging (WAL) and MVCC rollback steps for active transactions.</span>
+                                    <span><strong>Hot Tier:</strong> In-Memory storage using Write-Ahead Logging (WAL) and MVCC rollback steps for active transactions.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>**Warm Tier:** Relational document store evaluating foreign-key constraints (e.g., policy to account mappings).</span>
+                                    <span><strong>Warm Tier:</strong> Relational document store evaluating foreign-key constraints (e.g., policy to account mappings).</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>**Cold Tier:** Columnar partitioned archival engine outputting optimized Parquet files to disk storage.</span>
+                                    <span><strong>Cold Tier:</strong> Columnar partitioned archival engine outputting optimized Parquet files to disk storage.</span>
                                 </li>
                             </ul>
                             <div className="tech-specs-box">
@@ -440,7 +440,7 @@ export default function DomainsPage() {
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Secures financial data by requiring **TLS v1.3** and private range IP addresses (**RFC1918**).</span>
+                                    <span>Secures financial data by requiring <strong>TLS v1.3</strong> and private range IP addresses (<strong>RFC1918</strong>).</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />

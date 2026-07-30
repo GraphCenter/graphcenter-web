@@ -201,7 +201,7 @@ export default function ArchitecturePage() {
                                     <div className="step-content">
                                         <h4 className="step-title">Environmental Verification</h4>
                                         <p className="step-desc">
-                                            Secures high-value banking and financial systems by strictly requiring **TLS v1.3** and client source IP validation matching RFC1918 private subnets.
+                                            Secures high-value banking and financial systems by strictly requiring <strong>TLS v1.3</strong> and client source IP validation matching RFC1918 private subnets.
                                         </p>
                                     </div>
                                 </div>
