@@ -16,84 +16,84 @@ interface SubsystemFeature {
 
 const FEATURES: SubsystemFeature[] = [
     {
-        id: 'sap',
-        subsystem: 'Real-Time In-Memory Ledger Accounting & Universal Journal Processing Module',
+        id: 'finance',
+        subsystem: 'Finance',
         pillar: 'Commercial',
-        capability: 'Real-time double-entry journal mappings directly to in-memory unified ledger structures, incorporating automated physical rack slot configurations.',
-        legacyDrawback: 'Overnight batch reconciliation routines with static database allocations leading to inventory mismatches.',
-        dataTier: 'Hot Tier (In-Memory transactional store with WAL write-ahead logs)',
+        capability: 'Live budget, expense, revenue, and forecast dashboards in one connected domain, scoped per user and organization.',
+        legacyDrawback: 'A different spreadsheet or point tool per finance function, reconciled by hand.',
+        dataTier: 'Hot Tier (In-memory transactional store)',
         protocol: 'Synchronous gRPC over HTTP/2',
-        efficiency: '99.98% Synced'
+        efficiency: 'Real-time'
     },
     {
-        id: 'netsuite',
-        subsystem: 'Multi-Subsidiary Global Consolidation & Automated Intercompany Elimination Engine',
+        id: 'medical',
+        subsystem: 'Medical',
         pillar: 'Commercial',
-        capability: 'Dynamic multi-subsidiary global consolidations, automated intercompany transaction eliminations, and live multi-currency tax mapping.',
-        legacyDrawback: 'Manual multi-currency spreadsheet reconciliations and slow monthly consolidation runs.',
-        dataTier: 'Warm Tier (Relational Document Store with schema constraints)',
+        capability: 'Patients, labs, admissions, and staffing under one domain, gated by the platform’s own per-user access controls.',
+        legacyDrawback: 'Clinical data siloed across separate EHR and scheduling systems.',
+        dataTier: 'Hot Tier (In-memory transactional store)',
         protocol: 'Synchronous gRPC over HTTP/2',
-        efficiency: '< 100ms Consolidation'
+        efficiency: 'Real-time'
     },
     {
-        id: 'temenos',
-        subsystem: 'High-Frequency Core Banking Distributed Ledger & Multilateral Clearing Scheme',
+        id: 'project-management',
+        subsystem: 'Project Management',
         pillar: 'Commercial',
-        capability: 'Continuous-compound interest calculation engine for global liquidity vaults. Handles corporate accounts dynamically.',
-        legacyDrawback: 'End-of-day batch interest calculations, delaying portfolio valuation updates and asset balancing.',
-        dataTier: 'Hot Tier (In-Memory store with WAL logging & MVCC rollbacks)',
+        capability: 'Project status, deadlines, and team utilization in the same shell as the domains those projects actually touch.',
+        legacyDrawback: 'A standalone PM tool disconnected from the operational data it tracks.',
+        dataTier: 'Hot Tier (In-memory transactional store)',
         protocol: 'Synchronous gRPC over HTTP/2',
-        efficiency: 'Real-time Accrual'
+        efficiency: 'Web + Mobile'
     },
     {
-        id: 'yardi',
-        subsystem: 'Commercial Real Estate Asset Leasing & Common Area Maintenance (CAM) Reconciliation Engine',
+        id: 'aop',
+        subsystem: 'Annual Operating Procedures',
         pillar: 'Commercial',
-        capability: 'Live lease valuation and CAM (Common Area Maintenance) share percentage indexation. Dynamically updates outstanding balances.',
-        legacyDrawback: 'Static property ledgers requiring offline recalculations and manual property sync.',
-        dataTier: 'Hot Tier (In-Memory transactional store)',
+        capability: 'Procedures, documentation, schedules, and staffing plans as structured, searchable records.',
+        legacyDrawback: 'SOPs and compliance docs scattered across a shared drive full of PDFs.',
+        dataTier: 'Warm Tier (Relational document store)',
         protocol: 'Synchronous gRPC over HTTP/2',
-        efficiency: 'Zero Leakage'
+        efficiency: 'Searchable'
     },
     {
-        id: 'blackbaud',
-        subsystem: 'Restricted Fund Accounting & Multi-Fiscal Year Allocation Pool Tracker',
+        id: 'composable-enterprise',
+        subsystem: 'Composable Enterprise',
         pillar: 'Commercial',
-        capability: 'Fund accounting logic partitioning restricted vs unrestricted grant allocations, enforcing expiration safeguards.',
-        legacyDrawback: 'Rigid manual chart of accounts structure and high administrative auditing overhead.',
-        dataTier: 'Hot Tier (In-Memory balanced ledger)',
+        capability: 'New business units addable to an organization dynamically, with per-user domain access controlled by ADMIN/SUPER_ADMIN accounts.',
+        legacyDrawback: 'A fixed, single-tenant SaaS configuration that needs a vendor ticket to change.',
+        dataTier: 'Warm Tier (Relational document store)',
         protocol: 'Synchronous gRPC over HTTP/2',
-        efficiency: '100% Audit Trails'
+        efficiency: 'No redeploy'
     },
     {
-        id: 'epicor',
-        subsystem: 'Discrete Manufacturing Execution System (MES) & Recursive BOM Explosion Routing',
+        id: 'mechanical-3d',
+        subsystem: 'Mechanical 3D Design',
         pillar: 'Technical & Industrial',
-        capability: 'Recursive, multi-stage 3-tier deep BOM (Bill of Materials) explosions traversing complex industrial components.',
-        legacyDrawback: 'Flat component list structures causing slow lookup tables and inventory assembly lags.',
-        dataTier: 'Hot Tier (In-Memory transactional store)',
-        protocol: 'Asynchronous CloudEvents 1.0 (MRP trigger)',
-        efficiency: 'Immediate Explosion'
+        capability: 'Real WebGL CAD viewport with procedural per-part geometry (bolts, nuts, brackets, bearings), drag-and-drop assembly, and explode view.',
+        legacyDrawback: 'Desktop-only CAD software requiring a separate license and install per seat, no web access.',
+        dataTier: 'Hot Tier (In-memory transactional store)',
+        protocol: 'Client-rendered WebGL (react-three-fiber)',
+        efficiency: 'Browser-native'
     },
     {
-        id: 'maximo',
-        subsystem: 'IoT Telemetry Ingestion & Predictive Asset Performance Engineering Module',
+        id: 'chemical-engineering',
+        subsystem: 'Chemical Engineering',
         pillar: 'Technical & Industrial',
-        capability: 'High-frequency telemetry stream ingestion (vibration Hz, temperature C) driving real-time Root Cause Failure Analysis (RCFA) diagnostic trees.',
-        legacyDrawback: 'Reactive maintenance programs driven by static calendar intervals rather than real-time machine telemetry.',
-        dataTier: 'Cold Tier (Columnar partitioned Parquet archival on disk)',
-        protocol: 'Asynchronous CloudEvents 1.0 (IoT telemetry stream)',
-        efficiency: '99.4% Failure Prevention'
-    },
-    {
-        id: 'guidewire',
-        subsystem: 'Declarative Business Process Management (BPM) & Policy Underwriting Engine',
-        pillar: 'Technical & Industrial',
-        capability: 'State-machine driven workflow underwriting and claim approvals. Enforces MANAGER+ role clearances for approval states.',
-        legacyDrawback: 'Static email-escalation queues and slow manual peer review loops.',
-        dataTier: 'Warm Tier (Relational Document Store with schema constraints)',
+        capability: 'Process and formulation records through the same multi-view (diagram/model/list) engineering workspace shell.',
+        legacyDrawback: 'Process data siloed in disconnected spreadsheets per team.',
+        dataTier: 'Warm Tier (Relational document store)',
         protocol: 'Synchronous gRPC over HTTP/2',
-        efficiency: 'Automated Routing'
+        efficiency: 'Unified shell'
+    },
+    {
+        id: 'core-network-design',
+        subsystem: 'Core Network Design',
+        pillar: 'Technical & Industrial',
+        capability: 'Network topology as live, structured diagram records instead of a static exported file.',
+        legacyDrawback: 'Network diagrams that go stale the moment they’re exported from a drawing tool.',
+        dataTier: 'Warm Tier (Relational document store)',
+        protocol: 'Synchronous gRPC over HTTP/2',
+        efficiency: 'Always current'
     },
     {
         id: 'eventbus',
@@ -109,11 +109,11 @@ const FEATURES: SubsystemFeature[] = [
         id: 'abac',
         subsystem: 'ABAC Access Control Guard',
         pillar: 'Infrastructure & Security',
-        capability: 'Granular attribute evaluation (TLS 1.3 encryption version, client IP verification, role clearances, subsidiary tenant matching).',
-        legacyDrawback: 'Coarse role-based permissions lacking network-level security, tenant separation, or cryptographic enforcement.',
+        capability: 'Attribute evaluation against real platform roles — USER, ADMIN (organization-scoped), and SUPER_ADMIN (platform-wide) — plus per-user domain allowlists.',
+        legacyDrawback: 'Coarse role-based permissions with no organization- or domain-level scoping.',
         dataTier: 'Hot Tier (In-memory real-time security log)',
         protocol: 'Synchronous gRPC middleware evaluation',
-        efficiency: 'SOC2/GDPR Compliant'
+        efficiency: 'Org + Domain scoped'
     }
 ];
 

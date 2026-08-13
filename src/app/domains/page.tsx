@@ -88,167 +88,167 @@ export default function DomainsPage() {
                 {/* Tab Panels */}
                 {activeTab === 'commercial' && (
                     <div className="domain-grid">
-                        {/* Real-Time Ledger Integration */}
+                        {/* Finance */}
                         <div className="domain-card">
                             <div className="domain-icon-wrapper commercial">
                                 📊
                             </div>
-                            <h3 className="feature-title">Real-Time In-Memory Ledger Accounting &amp; Universal Journal Processing</h3>
+                            <h3 className="feature-title">Finance</h3>
                             <p className="feature-desc">
-                                Core transactional module enabling real-time double-entry journal postings directly into the unified in-memory ledger database structures.
+                                Budget, expense, revenue, and forecast tracking in one connected view, instead of a different spreadsheet or tool per finance function.
                             </p>
                             <ul className="bullet-list">
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Maps record updates utilizing structured identifiers: Client <span className="code-pill">RCLNT: "100"</span> and Ledger <span className="code-pill">RLDNR: "0L"</span>.</span>
+                                    <span>Live budget vs. actuals, expense tracking, and revenue dashboards under one domain.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Executes balanced postings validating Debit/Credit markers (<span className="code-pill">S</span> / <span className="code-pill">H</span>) and transaction values (<span className="code-pill">TSL</span>).</span>
+                                    <span>Rolling forecast tools that update as new transactions land, not just at month-end close.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Tightly integrates with the physical WMS slot coordinate map to update inventories synchronously.</span>
+                                    <span>Per-user, per-organization access control — finance data stays scoped to who should see it.</span>
                                 </li>
                             </ul>
                             <div className="tech-specs-box">
-                                <h5>In-Memory Ledger Invariant</h5>
+                                <h5>Domain Spec</h5>
                                 <ul className="tech-specs-list">
-                                    <li><span>GL Cash Account:</span> <span>100000</span></li>
-                                    <li><span>Posting Type:</span> <span>Double-Entry Balance</span></li>
-                                    <li><span>Data Target:</span> <span>Hot Tier + WAL</span></li>
+                                    <li><span>Sub-areas:</span> <span>Budget, Expenses, Revenue, Forecast</span></li>
+                                    <li><span>Access model:</span> <span>Per-user domain scoping</span></li>
+                                    <li><span>Data Target:</span> <span>Hot Tier</span></li>
                                 </ul>
                             </div>
                         </div>
 
-                        {/* Multi-Subsidiary Global Consolidation */}
+                        {/* Medical */}
                         <div className="domain-card">
                             <div className="domain-icon-wrapper commercial">
-                                🌍
+                                🏥
                             </div>
-                            <h3 className="feature-title">Multi-Subsidiary Global Consolidation &amp; Automated Intercompany Elimination Engine</h3>
+                            <h3 className="feature-title">Medical</h3>
                             <p className="feature-desc">
-                                Manages the global corporate multi-subsidiary matrix, facilitating dynamic consolidated tax conversions and intercompany eliminations.
+                                Patient records, lab results, admissions, and staffing in a single domain, gated behind the same organization-level access controls as every other domain.
                             </p>
                             <ul className="bullet-list">
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Consolidates annual revenues across primary regions: AMER ($1.25B), Europe EMEA ($820M), and APAC ($530M).</span>
+                                    <span>Patient, lab, and admissions views built on the same real-time data layer as the rest of the platform.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Automates tax rules mapping localized codes (<span className="code-pill">DE-MWST-19</span> / <span className="code-pill">SG-GST-9</span>) to core currency bases.</span>
+                                    <span>Staff scheduling and department views alongside clinical data, not in a separate system.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Performs transactional parenting checks based on <span className="code-pill">parentSubsidiaryId</span> relationships.</span>
+                                    <span>Domain access can be restricted per user, so only the right staff reach patient data.</span>
                                 </li>
                             </ul>
                             <div className="tech-specs-box">
-                                <h5>Global Hierarchy Spec</h5>
+                                <h5>Domain Spec</h5>
                                 <ul className="tech-specs-list">
-                                    <li><span>Parent Tenant:</span> <span>Apex Global (AMER)</span></li>
-                                    <li><span>Active Tenants:</span> <span>3 Subsidiaries</span></li>
-                                    <li><span>Consolidation:</span> <span>Dynamic Relational</span></li>
+                                    <li><span>Sub-areas:</span> <span>Patients, Labs, Admissions, Staff</span></li>
+                                    <li><span>Access model:</span> <span>Per-user domain scoping</span></li>
+                                    <li><span>Data Target:</span> <span>Hot Tier</span></li>
                                 </ul>
                             </div>
                         </div>
 
-                        {/* Core Banking Distributed Ledger & Portfolio NAV */}
+                        {/* Project Management */}
                         <div className="domain-card">
                             <div className="domain-icon-wrapper commercial">
-                                💳
+                                📋
                             </div>
-                            <h3 className="feature-title">Distributed Ledger Core Banking &amp; Portfolio NAV Engine</h3>
+                            <h3 className="feature-title">Project Management</h3>
                             <p className="feature-desc">
-                                Strategic financial ledger handling high-liquidity corporate treasury vaults and real-time Net Asset Value (NAV) wealth portfolio aggregations.
+                                Project tracking, team assignment, and utilization in the same shell as the rest of the business — no separate PM tool to keep in sync.
                             </p>
                             <ul className="bullet-list">
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Computes continuous-compound interest dynamically on treasury vaults (e.g. 4.75% USD AMER Treasury, 3.9% EUR EMEA Ops).</span>
+                                    <span>Project status, progress, and deadlines visible alongside the domains they actually depend on.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Uses <span className="code-pill">lastInterestAccrualTime</span> to calculate precise time differentials for ledger credit updates.</span>
+                                    <span>Team utilization and assignment tracking built into the same workspace.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Sums multi-asset wealth portfolios (AAPL, MSFT, NVDA, GOOGL, TSLA) to calculate live C-Level corporate liquidity indices.</span>
+                                    <span>Reachable from both the web dashboard and the GraphControl mobile app.</span>
                                 </li>
                             </ul>
                             <div className="tech-specs-box">
-                                <h5>Treasury Specs</h5>
+                                <h5>Domain Spec</h5>
                                 <ul className="tech-specs-list">
-                                    <li><span>Total Liquidity:</span> <span>$260M+ Vaults</span></li>
-                                    <li><span>Interest Model:</span> <span>Continuous Compound</span></li>
-                                    <li><span>Database Engine:</span> <span>Hot Tier In-Memory</span></li>
+                                    <li><span>Surfaces:</span> <span>Web + Mobile</span></li>
+                                    <li><span>Access model:</span> <span>Per-user domain scoping</span></li>
+                                    <li><span>Data Target:</span> <span>Hot Tier</span></li>
                                 </ul>
                             </div>
                         </div>
 
-                        {/* Commercial Real Estate Asset Leasing */}
+                        {/* Annual Operating Procedures */}
                         <div className="domain-card">
                             <div className="domain-icon-wrapper commercial">
-                                🏢
+                                🗂️
                             </div>
-                            <h3 className="feature-title">Commercial Real Estate Asset Leasing &amp; CAM Reconciliation Engine</h3>
+                            <h3 className="feature-title">Annual Operating Procedures</h3>
                             <p className="feature-desc">
-                                Automates commercial lease management, indexing rentable square foot calculations against dynamic CAM (Common Area Maintenance) rates.
+                                Procedures, documentation, schedules, and staffing plans kept as living, structured records instead of a shared drive full of PDFs.
                             </p>
                             <ul className="bullet-list">
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Processes active lease accounts (e.g. rent calculations and active portfolio metrics).</span>
+                                    <span>Standard operating procedures and supporting documentation in one searchable domain.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Dynamically recalculates outstanding balances by applying proportional CAM shares (<span className="code-pill">camSharePercent</span>).</span>
+                                    <span>Recurring schedules and staffing plans tracked alongside the procedures they govern.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Integrates lease tenures directly to general ledger accounts for revenue amortization schedules.</span>
+                                    <span>Same access-control model as every other domain — no separate compliance silo.</span>
                                 </li>
                             </ul>
                             <div className="tech-specs-box">
-                                <h5>Lease Calculations</h5>
+                                <h5>Domain Spec</h5>
                                 <ul className="tech-specs-list">
-                                    <li><span>Base Index:</span> <span>Rentable SF Mapped</span></li>
-                                    <li><span>CAM Allocation:</span> <span>Variable % Share</span></li>
-                                    <li><span>Data Target:</span> <span>Hot Tier Store</span></li>
+                                    <li><span>Sub-areas:</span> <span>Procedures, Docs, Schedules, Staffing</span></li>
+                                    <li><span>Access model:</span> <span>Per-user domain scoping</span></li>
+                                    <li><span>Data Target:</span> <span>Warm Tier</span></li>
                                 </ul>
                             </div>
                         </div>
 
-                        {/* Restricted Fund Accounting */}
+                        {/* Composable Enterprise */}
                         <div className="domain-card">
                             <div className="domain-icon-wrapper commercial">
-                                🎗️
+                                🧩
                             </div>
-                            <h3 className="feature-title">Restricted Fund Accounting &amp; Allocation Pool Tracker</h3>
+                            <h3 className="feature-title">Composable Enterprise</h3>
                             <p className="feature-desc">
-                                Non-Profit grant and community endowment tracking module, establishing strict legal compliance boundaries for restricted funds.
+                                The meta-domain: add new business units to the platform without a re-deploy, and control exactly which users can reach each one.
                             </p>
                             <ul className="bullet-list">
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Separates grant allocations into restricted and unrestricted accounts (e.g. NSF STEM Lab Research at $15M).</span>
+                                    <span>New business units can be added dynamically, each with its own configured workspace.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Enforces spending validation against pre-allocated pools, tracking exact spent vs remaining balances.</span>
+                                    <span>ADMIN and SUPER_ADMIN accounts control which domains each user can see, down to the individual.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Automatically freezes accounts upon reaching expiration years (<span className="code-pill">expirationYear</span>) to avoid audits.</span>
+                                    <span>Leaving a user's domain access unrestricted keeps them unrestricted by default — no accidental lockouts.</span>
                                 </li>
                             </ul>
                             <div className="tech-specs-box">
-                                <h5>Fund Allocation Specs</h5>
+                                <h5>Domain Spec</h5>
                                 <ul className="tech-specs-list">
-                                    <li><span>Allocation Rules:</span> <span>Restricted Partitioning</span></li>
-                                    <li><span>SLA Safeguards:</span> <span>Auto-Expiration Freeze</span></li>
-                                    <li><span>Auditability:</span> <span>SOC2 Balanced</span></li>
+                                    <li><span>Provisioning:</span> <span>Dynamic, no redeploy</span></li>
+                                    <li><span>Access model:</span> <span>ADMIN / SUPER_ADMIN managed</span></li>
+                                    <li><span>Data Target:</span> <span>Warm Tier</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -257,101 +257,101 @@ export default function DomainsPage() {
 
                 {activeTab === 'technical' && (
                     <div className="domain-grid">
-                        {/* MES / BOM Explosion */}
+                        {/* Mechanical 3D Design */}
                         <div className="domain-card">
                             <div className="domain-icon-wrapper technical">
                                 ⚙️
                             </div>
-                            <h3 className="feature-title">Discrete Manufacturing Execution System (MES) &amp; Recursive BOM Explosion Routing</h3>
+                            <h3 className="feature-title">Mechanical 3D Design</h3>
                             <p className="feature-desc">
-                                Industrial routing engine executing recursive 3-tier deep Bill of Materials (BOM) explosions for multi-component machinery.
+                                A real WebGL 3D CAD viewport in the browser — not a static preview. Every part renders as genuine procedural geometry, not a generic icon.
                             </p>
                             <ul className="bullet-list">
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Explodes complex items (Heavy Turbines) down to Rotor Assembly (Tier 1), Main Bearing Set (Tier 2), and sealed bearing components (Tier 3).</span>
+                                    <span>Bolts, nuts, brackets, bearings, PCBs, and sensors each render as real, distinguishable 3D geometry — a hex nut genuinely has a drilled hole, not a placeholder cube.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Uses sub-BOM recursive objects mapping precise SKU counts, and quantities required.</span>
+                                    <span>Click-to-select, drag-to-reposition, and drag-and-drop assembly placement directly in the 3D scene.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Directly maps manufacturing workflows to logistics purchase orders on parts exhaustion.</span>
+                                    <span>Explode view and shaded/wireframe/x-ray modes, with each route rendering the layout that fits its content — a live 3D viewport, a part catalog grid, or a model review pane.</span>
                                 </li>
                             </ul>
                             <div className="tech-specs-box">
-                                <h5>BOM Explosion Specs</h5>
+                                <h5>Domain Spec</h5>
                                 <ul className="tech-specs-list">
-                                    <li><span>Recursion Limit:</span> <span>3 Tiers Deep</span></li>
-                                    <li><span>BOM Core Target:</span> <span>ASM-TURBINE-HVY-001</span></li>
-                                    <li><span>Communication:</span> <span>CloudEvents Trigger</span></li>
+                                    <li><span>Renderer:</span> <span>WebGL (react-three-fiber)</span></li>
+                                    <li><span>Geometry:</span> <span>Procedural, per-part-type</span></li>
+                                    <li><span>Layouts:</span> <span>Viewport / Catalog / Model Review</span></li>
                                 </ul>
                             </div>
                         </div>
 
-                        {/* IoT Telemetry Ingestion */}
+                        {/* Chemical Engineering */}
                         <div className="domain-card">
                             <div className="domain-icon-wrapper technical">
-                                🛰️
+                                🧪
                             </div>
-                            <h3 className="feature-title">IoT Telemetry Ingestion &amp; Predictive Asset Performance Engineering</h3>
+                            <h3 className="feature-title">Chemical Engineering</h3>
                             <p className="feature-desc">
-                                High-velocity industrial telemetry diagnostic loops utilizing Root Cause Failure Analysis (RCFA) models on rotating machinery assets.
+                                Process and formulation data in the same composable workspace as every other engineering domain, instead of a disconnected process-engineering tool.
                             </p>
                             <ul className="bullet-list">
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Ingests live physical data parameters: vibration frequency (<span className="code-pill">vibrationHz</span>) and thermal levels (<span className="code-pill">temperatureC</span>).</span>
+                                    <span>Process and formulation records rendered through the same multi-view workspace shell as the platform's other engineering domains.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Triggers preventive work orders when anomalous limits are exceeded (e.g. vibration &gt; 3Hz).</span>
+                                    <span>Diagram, model, and list views available depending on what a given record needs to show.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Archives historical streams directly into columnar Parquet format in the database Cold Tier.</span>
+                                    <span>Same organization- and user-level access controls as every other business domain.</span>
                                 </li>
                             </ul>
                             <div className="tech-specs-box">
-                                <h5>RCFA Telemetry</h5>
+                                <h5>Domain Spec</h5>
                                 <ul className="tech-specs-list">
-                                    <li><span>Ingestion Frequency:</span> <span>5-min Interval Loops</span></li>
-                                    <li><span>Assets:</span> <span>Heavy Turbine / Jet Fleet</span></li>
-                                    <li><span>Archival Format:</span> <span>Parquet JSONL files</span></li>
+                                    <li><span>Layouts:</span> <span>Diagram / Model / List</span></li>
+                                    <li><span>Access model:</span> <span>Per-user domain scoping</span></li>
+                                    <li><span>Data Target:</span> <span>Warm Tier</span></li>
                                 </ul>
                             </div>
                         </div>
 
-                        {/* Declarative BPM */}
+                        {/* Core Network Design */}
                         <div className="domain-card">
                             <div className="domain-icon-wrapper technical">
                                 🌐
                             </div>
-                            <h3 className="feature-title">Declarative Business Process Management (BPM) &amp; Policy Underwriting Engine</h3>
+                            <h3 className="feature-title">Core Network Design</h3>
                             <p className="feature-desc">
-                                Core business process management (BPM) engine driving commercial policies and insurance state-machines.
+                                Network topology and infrastructure design as live, structured records — not a static diagram file that goes stale the moment it's exported.
                             </p>
                             <ul className="bullet-list">
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Orchestrates insurance policies, tracking coverage value limits ($1.2B Marine Cargo) and risk indicators.</span>
+                                    <span>Topology and infrastructure diagrams rendered through the platform's own diagram engine, not a separate drawing tool.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Evaluates state transitions (DRAFT → UNDERWRITTEN → ACTIVE) through strict validation pipelines.</span>
+                                    <span>Shares the same underlying data layer as the rest of the platform's engineering domains.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Integrates directly with CRM accounts via referential ID checks, blocking orphaned entities.</span>
+                                    <span>Domain access controlled per user, same as every other business unit.</span>
                                 </li>
                             </ul>
                             <div className="tech-specs-box">
-                                <h5>BPM State-Machine</h5>
+                                <h5>Domain Spec</h5>
                                 <ul className="tech-specs-list">
-                                    <li><span>Transition Rules:</span> <span>Declarative BPM State Engine</span></li>
-                                    <li><span>Integrations:</span> <span>CRM Relational</span></li>
-                                    <li><span>Policy Target:</span> <span>underwriting_policy</span></li>
+                                    <li><span>Layouts:</span> <span>Diagram / Model / List</span></li>
+                                    <li><span>Access model:</span> <span>Per-user domain scoping</span></li>
+                                    <li><span>Data Target:</span> <span>Warm Tier</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -433,28 +433,94 @@ export default function DomainsPage() {
                             </div>
                             <h3 className="feature-title">ABAC Security Guard</h3>
                             <p className="feature-desc">
-                                Attribute-Based Access Control middleware enforcing SOC2/GDPR compliance at the request level.
+                                Attribute-Based Access Control middleware enforcing organization- and domain-scoped access at the request level.
                             </p>
                             <ul className="bullet-list">
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Evaluates subject attributes (Role, Clearance level, Subsidiary) against resource classifications.</span>
+                                    <span>Evaluates subject attributes (role — USER, ADMIN, or SUPER_ADMIN — plus organization and allowed domains) against resource classifications.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Secures financial data by requiring <strong>TLS v1.3</strong> and private range IP addresses (<strong>RFC1918</strong>).</span>
+                                    <span>ADMIN accounts are scoped to their own organization; SUPER_ADMIN accounts operate platform-wide.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
-                                    <span>Strictly scopes multi-tenant operations, ensuring users can only manipulate resources matching their subsidiary ID.</span>
+                                    <span>Strictly scopes multi-tenant operations, ensuring users can only reach domains and organizations they're actually granted.</span>
                                 </li>
                             </ul>
                             <div className="tech-specs-box">
                                 <h5>Compliance Engine</h5>
                                 <ul className="tech-specs-list">
                                     <li><span>Methodology:</span> <span>Attribute-Based (ABAC)</span></li>
-                                    <li><span>Cryptographic Floor:</span> <span>TLS 1.3 Standard</span></li>
-                                    <li><span>Network Scope:</span> <span>RFC1918 Private IP</span></li>
+                                    <li><span>Roles:</span> <span>USER / ADMIN / SUPER_ADMIN</span></li>
+                                    <li><span>Scope:</span> <span>Organization + Domain</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {/* IT Operations */}
+                        <div className="domain-card">
+                            <div className="domain-icon-wrapper infrastructure">
+                                🖥️
+                            </div>
+                            <h3 className="feature-title">IT Operations</h3>
+                            <p className="feature-desc">
+                                Infrastructure and systems oversight as its own domain, with the same live dashboards and access controls as every other business unit.
+                            </p>
+                            <ul className="bullet-list">
+                                <li>
+                                    <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
+                                    <span>Infrastructure status and systems health surfaced as a dedicated, domain-scoped workspace.</span>
+                                </li>
+                                <li>
+                                    <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
+                                    <span>SUPER_ADMIN accounts get platform-wide system health — process, database, and infrastructure metrics — plus login analytics and raw AI-agent request logs.</span>
+                                </li>
+                                <li>
+                                    <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
+                                    <span>Reachable from both the web dashboard and the GraphControl mobile app's own SUPER_ADMIN console.</span>
+                                </li>
+                            </ul>
+                            <div className="tech-specs-box">
+                                <h5>Domain Spec</h5>
+                                <ul className="tech-specs-list">
+                                    <li><span>Surfaces:</span> <span>Web + Mobile</span></li>
+                                    <li><span>Admin console:</span> <span>System health, agent logs</span></li>
+                                    <li><span>Data Target:</span> <span>Hot Tier</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {/* Data and File Management */}
+                        <div className="domain-card">
+                            <div className="domain-icon-wrapper infrastructure">
+                                🗄️
+                            </div>
+                            <h3 className="feature-title">Data and File Management</h3>
+                            <p className="feature-desc">
+                                Documents and files as first-class, access-controlled records — searchable and previewable in place, not scattered across shared drives.
+                            </p>
+                            <ul className="bullet-list">
+                                <li>
+                                    <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
+                                    <span>Document upload, preview, and organization under the platform's own access-control model.</span>
+                                </li>
+                                <li>
+                                    <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
+                                    <span>Backed by the same Hot/Warm/Cold tiered storage engine as the rest of the platform.</span>
+                                </li>
+                                <li>
+                                    <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0 }} />
+                                    <span>Same per-user domain access rules as every other business unit — no separate file-permissions system to maintain.</span>
+                                </li>
+                            </ul>
+                            <div className="tech-specs-box">
+                                <h5>Domain Spec</h5>
+                                <ul className="tech-specs-list">
+                                    <li><span>Storage:</span> <span>Hot / Warm / Cold Tiers</span></li>
+                                    <li><span>Access model:</span> <span>Per-user domain scoping</span></li>
+                                    <li><span>Data Target:</span> <span>Tiered</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -493,6 +559,10 @@ export default function DomainsPage() {
                         </div>
                     </div>
                 )}
+
+                <p style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.95rem', maxWidth: '640px', margin: '-2rem auto 3rem', lineHeight: 1.6 }}>
+                    Plus dozens of additional configurable domains — Procurement, Sales, Human Resources, Legal, Marketing, Cybersecurity Operations, Workplace Management, and more — each addable to an organization without a platform redeploy.
+                </p>
 
                 {/* Comparative Feature Matrix Section */}
                 <section style={{ margin: '5rem 0' }}>

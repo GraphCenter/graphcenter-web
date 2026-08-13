@@ -77,7 +77,7 @@ export default function Software() {
                         <div className="glass hover-scale" style={{ padding: '2.5rem', borderRadius: 'var(--radius)', transition: 'transform 0.3s ease' }}>
                             <div className="text-4xl mb-6">🔒</div>
                             <h3 className="text-xl font-bold mb-3">Zero-Trust Security</h3>
-                            <p className="text-sm text-gray-600 leading-relaxed">End-to-end encryption with granular role-based access control (RBAC) over what data your agents can query and manipulate.</p>
+                            <p className="text-sm text-gray-600 leading-relaxed">Three real roles: USER accounts see only their granted domains, ADMIN manages users and domain access within their own organization, and SUPER_ADMIN gets platform-wide control &mdash; organizations, users, and a live system health &amp; agent-log console.</p>
                         </div>
                         <div className="glass hover-scale" style={{ padding: '2.5rem', borderRadius: 'var(--radius)', transition: 'transform 0.3s ease' }}>
                             <div className="text-4xl mb-6">🧠</div>
@@ -109,7 +109,7 @@ export default function Software() {
                                     <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">📱</div>
                                     <div>
                                         <h4 className="font-bold">Native Mobile Companion</h4>
-                                        <p className="text-sm text-gray-500">GraphControl, our native Android &amp; iOS companion app, brings the same assistant, biometric app-lock, and real-time notifications to the field.</p>
+                                        <p className="text-sm text-gray-500">GraphControl, our native Android &amp; iOS companion app, brings the same assistant, biometric app-lock, and real-time notifications to the field &mdash; plus a domain hub that surfaces every business unit a user can reach, full-screen detail views in place of cramped popups, and the same SUPER_ADMIN console (system health, agent logs, organization management) available on web.</p>
                                     </div>
                                 </div>
                             </div>

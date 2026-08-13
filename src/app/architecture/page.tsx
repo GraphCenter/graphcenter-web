@@ -9,7 +9,7 @@ export default function ArchitecturePage() {
 
     const schemas = {
         acdoca: {
-            title: 'ACDOCA_RecordCreated (Real-Time In-Memory Ledger Accounting & Universal Journal Processing Ledger)',
+            title: 'ACDOCA_RecordCreated (Finance Ledger Event)',
             description: 'Fires when a validated double-entry financial record is committed. Dictates hot-tier ledger balancing.',
             code: `{
   "id": "ev-kp8z3abc-7u12x",
@@ -183,7 +183,7 @@ export default function ArchitecturePage() {
                                     <div className="step-content">
                                         <h4 className="step-title">Subject Attributes Evaluated</h4>
                                         <p className="step-desc">
-                                            Loads current subject role (Admin, Manager, Auditor, Operator, Guest), clearanceLevel, department scope, and source tenant subsidiary.
+                                            Loads the current subject&apos;s real platform role (USER, ADMIN, or SUPER_ADMIN), their organization, and their per-user allowed-domains list.
                                         </p>
                                     </div>
                                 </div>
@@ -201,16 +201,16 @@ export default function ArchitecturePage() {
                                     <div className="step-content">
                                         <h4 className="step-title">Environmental Verification</h4>
                                         <p className="step-desc">
-                                            Secures high-value banking and financial systems by strictly requiring <strong>TLS v1.3</strong> and client source IP validation matching RFC1918 private subnets.
+                                            Secures sensitive domains by strictly requiring <strong>TLS v1.3</strong> and client source IP validation matching RFC1918 private subnets.
                                         </p>
                                     </div>
                                 </div>
                                 <div className="flow-step">
                                     <div className="step-number">4</div>
                                     <div className="step-content">
-                                        <h4 className="step-title">Subsidiary Scope Enforcement</h4>
+                                        <h4 className="step-title">Organization Scope Enforcement</h4>
                                         <p className="step-desc">
-                                            For non-ADMIN and non-AUDITOR subjects, strictly blocks cross-tenant access. Validates that the resource subsidiary ownership field matches the subject subsidiary perfectly.
+                                            ADMIN accounts are strictly scoped to their own organization; only SUPER_ADMIN can act across organizations. Every request validates that the resource&apos;s organization matches the subject&apos;s.
                                         </p>
                                     </div>
                                 </div>

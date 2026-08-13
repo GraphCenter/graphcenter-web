@@ -43,7 +43,12 @@ export default function Navbar() {
         <>
             <style dangerouslySetInnerHTML={{__html: `
                 .navbar-fixed { position: fixed; top: 0; left:0; width: 100%; z-index: 50; padding: 1rem 0; transition: all 0.3s ease; }
-                .navbar-container { display: flex; justify-content: space-between; align-items: center; padding: 0 1rem; max-width: 1200px; margin: 0 auto; }
+                /* max-width is wider here than the page's own 1200px .container
+                   convention on purpose: the logo + all 7 desktop links + CTA
+                   button need ~1170px on their own, which left zero room for
+                   any gap between the logo and the first link at 1200px — they
+                   visually touched at every viewport width. */
+                .navbar-container { display: flex; justify-content: space-between; align-items: center; gap: 2rem; padding: 0 1rem; max-width: 1320px; margin: 0 auto; }
                 .logo-wrapper { display: flex; align-items: center; gap: 10px; text-decoration: none; transition: transform 0.2s; }
                 .logo-wrapper:hover { transform: scale(1.02); }
                 .logo-text { font-size: 1.5rem; font-weight: 700; background: linear-gradient(90deg, #0052cc, #00b2ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -59,7 +64,15 @@ export default function Navbar() {
                 .mobile-nav-item { padding: 1rem; border-radius: 12px; font-weight: 600; font-size: 1.1rem; text-decoration: none; transition: all 0.2s; }
                 .mobile-nav-item:hover { background: #eff6ff; color: #0052cc !important; padding-left: 1.5rem; }
                 
-                @media (min-width: 1024px) {
+                /* The full desktop nav (logo + 7 links + CTA) needs ~1170px on
+                   its own — at 1024px, that left zero room for any gap
+                   between the logo and the first link (they visually
+                   touched at every width up to and including 1920px,
+                   since .navbar-container caps at max-width: 1200px and
+                   the content already fills nearly all of it). Deferring
+                   to the mobile panel until 1280px guarantees real
+                   breathing room whenever the full nav actually shows. */
+                @media (min-width: 1280px) {
                     .desktop-nav { display: flex; gap: 1.5rem; align-items: center; }
                     .mobile-toggle { display: none; }
                     .mobile-overlay, .mobile-panel { display: none !important; }
