@@ -139,7 +139,7 @@ export default function FeatureMatrix() {
             <style dangerouslySetInnerHTML={{__html: `
                 .matrix-card { background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 2rem; overflow-wrap: break-word; min-width: 0; }
                 .search-bar-wrapper { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
-                .search-input-container { position: relative; flex-grow: 1; min-width: 280px; }
+                .search-input-container { position: relative; flex-grow: 1; min-width: min(280px, 100%); }
                 .search-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
                 .search-input { width: 100%; padding: 0.8rem 1rem 0.8rem 2.8rem; border-radius: 30px; border: 1px solid var(--border); font-family: inherit; font-size: 0.95rem; color: var(--text-main); transition: all 0.2s; background: rgba(255,255,255,0.7); }
                 .search-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1); background: white; }

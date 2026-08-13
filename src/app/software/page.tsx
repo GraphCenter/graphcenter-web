@@ -5,7 +5,7 @@ export default function Software() {
                 <div className="container">
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(400px, 100%), 1fr))', gap: '4rem', alignItems: 'center' }}>
                         <div className="glass" style={{ padding: '2.5rem', borderRadius: 'var(--radius)' }}>
-                            <h1 className="text-5xl font-black mb-6">Agentic AI <br /><span className="gradient-text">Frameworks</span></h1>
+                            <h1 className="font-black mb-6" style={{ fontSize: 'clamp(2rem, 9vw, 3rem)' }}>Agentic AI <br /><span className="gradient-text">Frameworks</span></h1>
                             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                                 Our proprietary software framework enables the transition from static automation to autonomous ecosystems.
                                 By integrating LangGraph with modern Vector Databases and RAG (Retrieval-Augmented Generation) patterns,
@@ -30,13 +30,13 @@ export default function Software() {
                             </div>
 
                             <ul style={{ listStyle: 'none', padding: 0 }}>
-                                <li style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                    <span style={{ background: 'var(--primary)', color: 'white', padding: '4px 8px', borderRadius: '4px', fontSize: '0.8rem' }}>01</span>
-                                    <strong>Reason & Plan:</strong> Agents analyze context and determine the best course of action using multi-step reasoning.
+                                <li style={{ marginBottom: '1rem', display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                                    <span style={{ background: 'var(--primary)', color: 'white', padding: '4px 8px', borderRadius: '4px', fontSize: '0.8rem', flexShrink: 0, marginTop: '2px' }}>01</span>
+                                    <span style={{ flex: 1, minWidth: 0 }}><strong>Reason & Plan:</strong> Agents analyze context and determine the best course of action using multi-step reasoning.</span>
                                 </li>
-                                <li style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                    <span style={{ background: 'var(--primary)', color: 'white', padding: '4px 8px', borderRadius: '4px', fontSize: '0.8rem' }}>02</span>
-                                    <strong>Execute Workflows:</strong> Seamless integration with corporate tools and legacy software to drive tangible outcomes.
+                                <li style={{ marginBottom: '1rem', display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                                    <span style={{ background: 'var(--primary)', color: 'white', padding: '4px 8px', borderRadius: '4px', fontSize: '0.8rem', flexShrink: 0, marginTop: '2px' }}>02</span>
+                                    <span style={{ flex: 1, minWidth: 0 }}><strong>Execute Workflows:</strong> Seamless integration with corporate tools and legacy software to drive tangible outcomes.</span>
                                 </li>
                             </ul>
                         </div>

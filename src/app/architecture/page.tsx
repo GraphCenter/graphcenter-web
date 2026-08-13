@@ -60,9 +60,9 @@ export default function ArchitecturePage() {
             <style dangerouslySetInnerHTML={{__html: `
                 .arch-header { text-align: center; padding: 4rem 0 2rem; }
                 .spec-section { padding: 4rem 0; border-top: 1px solid var(--border); }
-                .spec-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; align-items: start; }
+                .spec-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4rem; align-items: start; }
                 @media (min-width: 1024px) {
-                    .spec-grid { grid-template-columns: 1fr 1fr; }
+                    .spec-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
                 }
                 
                 .flow-card { background: white; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 2rem; position: relative; overflow-wrap: break-word; min-width: 0; }
@@ -75,9 +75,9 @@ export default function ArchitecturePage() {
                 .step-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; display: flex; align-items: center; gap: 6px; }
                 .step-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
                 
-                .db-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+                .db-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
                 @media (min-width: 768px) {
-                    .db-grid { grid-template-columns: repeat(3, 1fr); }
+                    .db-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
                 }
                 
                 .db-card { background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); padding: 2rem; position: relative; transition: all 0.2s; overflow-wrap: break-word; min-width: 0; }
@@ -103,7 +103,7 @@ export default function ArchitecturePage() {
                     <div style={{ display: 'inline-block', padding: '0.5rem 1.5rem', background: 'var(--accent)', color: 'var(--primary)', borderRadius: '30px', fontWeight: 600, fontSize: '0.9rem', marginBottom: '1.5rem' }}>
                         Enterprise-Grade Integrity
                     </div>
-                    <h1 style={{ fontSize: '3.5rem', lineHeight: 1.1, marginBottom: '1.5rem', fontWeight: 900 }}>
+                    <h1 style={{ fontSize: 'clamp(2.25rem, 9vw, 3.5rem)', lineHeight: 1.1, marginBottom: '1.5rem', fontWeight: 900 }}>
                         System <span className="gradient-text">Architecture Spec</span>
                     </h1>
                     <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto', lineHeight: 1.6 }}>
