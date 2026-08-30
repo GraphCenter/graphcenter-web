@@ -1,6 +1,8 @@
+import PoweredByBadge from '@/components/PoweredByBadge';
+
 export default function Loading() {
     return (
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', minHeight: '60vh', width: '100%' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '2rem', height: '100%', minHeight: '60vh', width: '100%' }}>
             <div className="network-loader">
                 <style dangerouslySetInnerHTML={{__html: `
                     .network-loader {
@@ -54,6 +56,7 @@ export default function Loading() {
                 <div className="node node-2" />
                 <div className="node node-3" />
             </div>
+            <PoweredByBadge />
         </div>
     );
 }
