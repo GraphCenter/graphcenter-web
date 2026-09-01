@@ -6,18 +6,20 @@ interface PoweredByBadgeProps {
 }
 
 /**
- * Small cross-product attribution mark — "Powered by GraphCenter" — used on
- * loading/splash surfaces and legal pages only (not the global nav/footer,
- * which already carries the GraphCenter identity on its own).
+ * Small cross-product attribution mark — "Powered by GraphControl" — the OEM
+ * mark that also ships inside the portfolio apps (HomeAuto, Moeletsi, Softlearn)
+ * and any third-party app embedding the platform. Used on loading/splash
+ * surfaces and legal pages only (not the global nav/footer, which already
+ * carries the GraphCenter identity on its own).
  */
-export default function PoweredByBadge({ label = 'GraphCenter', className }: PoweredByBadgeProps) {
+export default function PoweredByBadge({ label = 'GraphControl', className }: PoweredByBadgeProps) {
     return (
         <div
             className={className}
             style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', opacity: 0.7 }}
         >
             <Image
-                src="/chatbot-logo.png"
+                src="/graphcenter-logo.png"
                 alt={`${label} logo`}
                 width={18}
                 height={18}

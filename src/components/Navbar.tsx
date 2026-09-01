@@ -33,9 +33,10 @@ export default function Navbar() {
         { href: '/about', label: 'About' },
         { href: '/services', label: 'Services' },
         { href: '/software', label: 'Software' },
-        { href: '/domains', label: 'Platform Domains' },
-        { href: '/architecture', label: 'System Architecture' },
+        { href: '/domains', label: 'Domains' },
+        { href: '/architecture', label: 'Architecture' },
         { href: '/pricing', label: 'Pricing' },
+        { href: '/trust', label: 'Trust' },
         { href: '/contact', label: 'Contact' },
     ];
 
@@ -81,7 +82,7 @@ export default function Navbar() {
             <nav className="glass navbar-fixed">
                 <div className="navbar-container">
                     <Link href="/" className="logo-wrapper">
-                        <Image src="/chatbot-logo.png" alt="Logo" width={38} height={38} style={{ borderRadius: '10px', boxShadow: '0 4px 10px rgba(0,82,204,0.2)' }} />
+                        <Image src="/graphcenter-logo.png" alt="GraphCenter" width={38} height={38} style={{ objectFit: 'contain' }} />
                         <span className="logo-text">GraphCenter</span>
                     </Link>
 
@@ -118,7 +119,7 @@ export default function Navbar() {
                     <div className="mobile-panel">
                         <div className="mobile-panel-header">
                             <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }} onClick={() => setMobileMenuOpen(false)}>
-                                <Image src="/chatbot-logo.png" alt="Logo" width={28} height={28} style={{ borderRadius: '6px' }} />
+                                <Image src="/graphcenter-logo.png" alt="GraphCenter" width={28} height={28} style={{ objectFit: 'contain' }} />
                                 <span className="logo-text" style={{ fontSize: '1.25rem' }}>GraphCenter</span>
                             </Link>
                             <button onClick={() => setMobileMenuOpen(false)} style={{ background: '#f3f4f6', border: 'none', cursor: 'pointer', padding: '8px', borderRadius: '50%', display: 'flex' }}>

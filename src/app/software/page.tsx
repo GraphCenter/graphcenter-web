@@ -5,26 +5,27 @@ export default function Software() {
                 <div className="container">
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(400px, 100%), 1fr))', gap: '4rem', alignItems: 'center' }}>
                         <div className="glass" style={{ padding: '2.5rem', borderRadius: 'var(--radius)' }}>
-                            <h1 className="font-black mb-6" style={{ fontSize: 'clamp(2rem, 9vw, 3rem)' }}>Agentic AI <br /><span className="gradient-text">Frameworks</span></h1>
+                            <h1 className="font-black mb-6" style={{ fontSize: 'clamp(2rem, 9vw, 3rem)' }}>GraphControl AI <br /><span className="gradient-text">the control plane</span></h1>
                             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                                Our proprietary software framework enables the transition from static automation to autonomous ecosystems.
-                                By integrating LangGraph with modern Vector Databases and RAG (Retrieval-Augmented Generation) patterns,
-                                we ensure your AI digital workforce operates on a foundation of verifiable truth and robust logic.
+                                One agentic platform sits under every product. Each page registers its live data and available
+                                actions; you ask for a change in plain language; the agent proposes it with a full before/after
+                                preview and commits only on your confirmation &mdash; and only ever within the allow-list a
+                                developer declared.
                             </p>
 
                             <div className="space-y-6 mb-12">
                                 <div className="flex gap-4">
-                                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">⚖️</div>
+                                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">📋</div>
                                     <div>
-                                        <h4 className="font-bold">Scalability by Design</h4>
-                                        <p className="text-sm text-gray-500">Architectures built to handle elastic workloads and growing organizational complexity without compromising on latency.</p>
+                                        <h4 className="font-bold">Allow-list by design</h4>
+                                        <p className="text-sm text-gray-500">Every data source and action is declared up front and independently re-validated at execution time. The boundary is enforced, not prompted.</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-4">
                                     <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">👁️</div>
                                     <div>
-                                        <h4 className="font-bold">Observability-First</h4>
-                                        <p className="text-sm text-gray-500">Full transparency into agent reasoning and decision-making processes for enterprise-grade compliance and debugging.</p>
+                                        <h4 className="font-bold">Observability-first</h4>
+                                        <p className="text-sm text-gray-500">Full transparency into agent reasoning and actions, logged and reviewable in the SUPER_ADMIN console for compliance and debugging.</p>
                                     </div>
                                 </div>
                             </div>
@@ -32,11 +33,11 @@ export default function Software() {
                             <ul style={{ listStyle: 'none', padding: 0 }}>
                                 <li style={{ marginBottom: '1rem', display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                                     <span style={{ background: 'var(--primary)', color: 'white', padding: '4px 8px', borderRadius: '4px', fontSize: '0.8rem', flexShrink: 0, marginTop: '2px' }}>01</span>
-                                    <span style={{ flex: 1, minWidth: 0 }}><strong>Reason & Plan:</strong> Agents analyze context and determine the best course of action using multi-step reasoning.</span>
+                                    <span style={{ flex: 1, minWidth: 0 }}><strong>Propose:</strong> the agent reasons over the page&apos;s registered context and drafts the change as a previewed diff.</span>
                                 </li>
                                 <li style={{ marginBottom: '1rem', display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                                     <span style={{ background: 'var(--primary)', color: 'white', padding: '4px 8px', borderRadius: '4px', fontSize: '0.8rem', flexShrink: 0, marginTop: '2px' }}>02</span>
-                                    <span style={{ flex: 1, minWidth: 0 }}><strong>Execute Workflows:</strong> Seamless integration with corporate tools and legacy software to drive tangible outcomes.</span>
+                                    <span style={{ flex: 1, minWidth: 0 }}><strong>Confirm:</strong> you accept or discard. Only on accept is anything committed, through the same validated registry.</span>
                                 </li>
                             </ul>
                         </div>
@@ -44,19 +45,19 @@ export default function Software() {
                         <div className="glass p-12 rounded-3xl border border-gray-100 text-center">
                             <div className="text-6xl mb-6">🤖</div>
                             <h3 className="text-2xl font-bold mb-4">The Agentic Core</h3>
-                            <p className="text-gray-500 mb-8">Powering the next generation of autonomous enterprise ecosystems with verifiable intelligence.</p>
+                            <p className="text-gray-500 mb-8">The same engine, metered per use, powers the portfolio and ships to third-party apps as &ldquo;Powered by GraphControl&rdquo;.</p>
                             <div className="space-y-3">
                                 <div className="p-4 bg-white/50 rounded-xl border border-blue-50 text-left text-sm">
-                                    <strong>✓ LangGraph Integration</strong>
+                                    <strong>✓ Allow-list registry + re-validation</strong>
                                 </div>
                                 <div className="p-4 bg-white/50 rounded-xl border border-blue-50 text-left text-sm">
-                                    <strong>✓ Vector-Driven Context</strong>
+                                    <strong>✓ Before / after preview on every change</strong>
                                 </div>
                                 <div className="p-4 bg-white/50 rounded-xl border border-blue-50 text-left text-sm">
-                                    <strong>✓ High-Velocity RAG</strong>
+                                    <strong>✓ Agent-generated dynamic UI</strong>
                                 </div>
                             </div>
-                            <button className="btn-primary w-full mt-8">Technical Whitepaper</button>
+                            <a href="/architecture" className="btn-primary w-full mt-8" style={{ display: 'block', textDecoration: 'none' }}>See the architecture</a>
                         </div>
                     </div>
                 </div>

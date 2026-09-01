@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GraphCenter | Architecting Autonomous Intelligence",
-  description: "Architecting the Next Generation of Autonomous Enterprise Ecosystems. Built for the scale of thought.",
+  title: "GraphCenter — The Agentic Control Plane for Vertical Applications",
+  description: "One AI platform — GraphControl AI — powering a portfolio of consumer and enterprise products, behind a hard safety boundary. Natural language in, working software out.",
 };
 
 // Without this, mobile browsers fall back to a ~980px virtual viewport and

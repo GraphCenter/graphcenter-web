@@ -14,33 +14,34 @@ export default function Services() {
             <section className="section">
                 <div className="container">
                     <div className="text-center mb-12">
-                        <h1 className="text-5xl font-black mb-6">Expertise for the Digital Workforce</h1>
+                        <h1 className="text-5xl font-black mb-6">Solutions &amp; Implementation</h1>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Our architectural services are designed to support complex enterprise requirements,
-                            ensuring stability while enabling rapid innovation in the Agentic AI era.
+                            The platform does the heavy lifting. These engagements are the thin layer around it&mdash;domain
+                            packs, integration with your existing systems, and migration&mdash;so a new vertical goes live in
+                            weeks, not quarters.
                         </p>
                     </div>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '6rem' }}>
                         <FeatureCard
-                            title="Modern Systems Architecture"
-                            description="Strategic design of Event-Driven, Hexagonal, and Microservices architectures tailored for scalability and resilience."
-                            icon="🏗️"
+                            title="Domain Packs"
+                            description="We model your vertical as a GraphControl domain — the data sources, actions, and permissions the assistant is allowed to touch — and validate it against the allow-list registry."
+                            icon="🧩"
                         />
                         <FeatureCard
-                            title="Cloud & Data Engineering"
-                            description="High-velocity data pipelines and cloud-native infrastructure optimized for real-time processing and distributed intelligence."
+                            title="Integration & Data"
+                            description="Connecting the platform to your existing ERPs, CRMs, and databases through the standardized, secure API gateway, plus the pipelines to keep them in sync."
                             icon="⚡"
                         />
                         <FeatureCard
-                            title="Agentic Software Development"
-                            description="Custom, integration-first software development that empowers AI agents to interact with your existing corporate landscape."
+                            title="Migration & Onboarding"
+                            description="Moving an existing product onto the control plane, or standing up a new one — data migration, rollout, and training for your team."
                             icon="🛠️"
                         />
                     </div>
 
                     <div className="glass p-12 rounded-3xl">
-                        <h2 className="text-3xl font-bold mb-8 text-center">Our Architectural Process</h2>
+                        <h2 className="text-3xl font-bold mb-8 text-center">How an engagement runs</h2>
                         <div className="grid md:grid-cols-4 gap-8">
                             <div className="text-center">
                                 <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4 font-bold text-blue-600">01</div>
