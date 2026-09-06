@@ -137,39 +137,39 @@ export default function FeatureMatrix() {
     return (
         <div style={{ width: '100%' }}>
             <style dangerouslySetInnerHTML={{__html: `
-                .matrix-card { background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 2rem; overflow-wrap: break-word; min-width: 0; }
+                .matrix-card { background: #ffffff; border-radius: var(--radius-asymmetric); border: 1px solid var(--border); box-shadow: none; padding: 2rem; overflow-wrap: break-word; min-width: 0; }
                 .search-bar-wrapper { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
                 .search-input-container { position: relative; flex-grow: 1; min-width: min(280px, 100%); }
                 .search-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
-                .search-input { width: 100%; padding: 0.8rem 1rem 0.8rem 2.8rem; border-radius: 30px; border: 1px solid var(--border); font-family: inherit; font-size: 0.95rem; color: var(--text-main); transition: all 0.2s; background: rgba(255,255,255,0.7); }
-                .search-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1); background: white; }
-                
+                .search-input { width: 100%; padding: 0.8rem 1rem 0.8rem 2.8rem; border-radius: 0px; border: 1px solid var(--border); font-family: inherit; font-size: 0.95rem; color: var(--text-main); transition: all 0.2s; background: var(--bg-alt); }
+                .search-input:focus { outline: none; border-color: var(--primary); }
+
                 .filter-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-                .filter-btn { padding: 0.6rem 1.2rem; border-radius: 30px; border: 1px solid var(--border); background: white; color: var(--text-muted); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-                .filter-btn:hover { background: var(--accent); color: var(--primary); border-color: var(--primary); }
-                .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
-                
-                .matrix-table-container { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border); margin-top: 1rem; background: white; }
+                .filter-btn { padding: 0.6rem 1.2rem; border-radius: var(--radius-pill); border: 1px solid var(--border); background: transparent; color: var(--text-muted); font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+                .filter-btn:hover { background: var(--nav-hover-bg); color: var(--text-main); }
+                .filter-btn.active { background: var(--text-main); color: white; border-color: var(--text-main); }
+
+                .matrix-table-container { overflow-x: auto; border-radius: 4px; border: 1px solid var(--border); margin-top: 1rem; background: #ffffff; }
                 .matrix-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; min-width: 800px; }
-                .matrix-table th { background: #f8fafc; padding: 1.2rem 1.5rem; font-weight: 700; color: var(--text-main); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--border); }
+                .matrix-table th { background: var(--bg-alt); padding: 1.2rem 1.5rem; font-weight: 600; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--border); }
                 .matrix-table td { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text-main); }
-                
-                .matrix-row:hover td { background-color: rgba(0, 82, 204, 0.01); }
+
+                .matrix-row:hover td { background-color: var(--bg-alt); }
                 .matrix-row:last-child td { border-bottom: none; }
-                
-                .badge-pillar { display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; border-radius: 30px; font-size: 0.75rem; font-weight: 600; }
-                .badge-pillar.commercial { background: #e0f2fe; color: #0369a1; }
-                .badge-pillar.technical { background: #faf5ff; color: #6b21a8; }
-                .badge-pillar.infrastructure { background: #ecfdf5; color: #047857; }
-                
+
+                .badge-pillar { display: inline-flex; align-items: center; padding: 0.25rem 0.6rem; border-radius: var(--radius-pill); font-size: 0.75rem; font-weight: 600; }
+                .badge-pillar.commercial { background: rgba(0,82,204,0.12); color: var(--primary); }
+                .badge-pillar.technical { background: rgba(0,178,255,0.14); color: var(--primary-deep); }
+                .badge-pillar.infrastructure { background: var(--bg-card); color: var(--text-muted); }
+
                 .badge-tier { display: inline-flex; align-items: center; gap: 4px; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; font-family: monospace; }
-                .badge-tier.hot { background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; }
-                .badge-tier.warm { background: #fffbeb; color: #b45309; border: 1px solid #fde047; }
-                .badge-tier.cold { background: #eff6ff; color: #1d4ed8; border: 1px solid #93c5fd; }
-                
-                .protocol-text { font-family: monospace; font-size: 0.8rem; background: #f1f5f9; padding: 0.2rem 0.4rem; border-radius: 4px; color: #334155; }
-                
-                .pill-capsule { display: inline-block; background: #f0fdf4; border: 1px solid #bbf7d0; color: #15803d; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 30px; }
+                .badge-tier.hot { background: rgba(0,82,204,0.1); color: var(--primary); border: 1px solid rgba(0,82,204,0.25); }
+                .badge-tier.warm { background: rgba(0,178,255,0.14); color: var(--primary-deep); border: 1px solid rgba(0,178,255,0.3); }
+                .badge-tier.cold { background: var(--bg-card); color: var(--text-muted); border: 1px solid var(--border); }
+
+                .protocol-text { font-family: monospace; font-size: 0.8rem; background: var(--bg-alt); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--text-tertiary); }
+
+                .pill-capsule { display: inline-block; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-main); font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: var(--radius-pill); }
             `}} />
             
             <div className="matrix-card">
@@ -251,7 +251,7 @@ export default function FeatureMatrix() {
                                         </td>
                                         <td style={{ fontSize: '0.85rem', lineHeight: '1.4' }}>
                                             <div style={{ display: 'flex', gap: '6px', alignItems: 'flex-start' }}>
-                                                <CheckCircle2 size={16} className="text-green-600" style={{ flexShrink: 0, marginTop: '2px' }} />
+                                                <CheckCircle2 size={16} style={{ flexShrink: 0, marginTop: '2px', color: 'var(--primary)' }} />
                                                 <span>{item.capability}</span>
                                             </div>
                                         </td>

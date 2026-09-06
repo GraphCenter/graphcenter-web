@@ -11,53 +11,51 @@ export default function PricingCard({ tier, price, features, isFeatured = false 
         display: 'block',
         width: '100%',
         padding: '0.8rem',
-        borderRadius: '30px',
-        fontWeight: 600,
+        borderRadius: '0px',
+        fontWeight: 500,
         textAlign: 'center',
         textDecoration: 'none',
         cursor: 'pointer',
-        transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-        border: isFeatured ? 'none' : '1px solid var(--border)',
+        fontSize: '14px',
+        transition: 'opacity 0.2s ease',
+        border: isFeatured ? '1px solid var(--text-main)' : '1px solid var(--text-main)',
         ...(isFeatured
-            ? {
-                background: 'linear-gradient(135deg, var(--primary), var(--primary-deep))',
-                color: 'white',
-                boxShadow: '0 10px 20px -5px rgba(0, 82, 204, 0.3)',
-              }
-            : {
-                background: 'var(--glass)',
-                color: 'var(--text-main)',
-              }),
+            ? { background: 'var(--text-main)', color: 'white' }
+            : { background: 'transparent', color: 'var(--text-main)' }),
     };
 
+    // Pragmatic exception to the no-cards rule (a pricing page genuinely
+    // needs tier comparison) — restyled flat: no shadow, the signature
+    // asymmetric radius, and a Deep Blue border used only as a highlight
+    // on the featured tier — never as a button fill, per design1.md.
     return (
-        <div className={isFeatured ? "sm:scale-105" : "glass"} style={{
+        <div style={{
             padding: '3rem 2rem',
-            borderRadius: 'var(--radius)',
+            borderRadius: 'var(--radius-asymmetric)',
             textAlign: 'center',
-            border: isFeatured ? '2px solid var(--primary)' : '1px solid var(--border)',
-            background: isFeatured ? 'white' : 'var(--glass)',
-            boxShadow: isFeatured ? '0 20px 40px rgba(0, 82, 204, 0.15)' : 'var(--shadow)',
+            border: isFeatured ? '1px solid var(--primary)' : '1px solid var(--border)',
+            background: '#ffffff',
+            boxShadow: 'none',
             display: 'flex',
             flexDirection: 'column',
         }}>
-            <div style={{ fontSize: '1.1rem', fontWeight: 600, color: isFeatured ? 'var(--primary)' : 'inherit', marginBottom: '1rem' }}>{tier}</div>
-            <div style={{ fontSize: '3rem', fontWeight: 700, marginBottom: '2rem' }}>
+            <div style={{ fontSize: '1.1rem', fontWeight: 600, color: isFeatured ? 'var(--primary)' : 'var(--text-muted)', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.025em' }}>{tier}</div>
+            <div className="text-heading-lg" style={{ marginBottom: '2rem', color: 'var(--text-main)' }}>
                 {price}
-                <span style={{ fontSize: '1rem', fontWeight: 400, color: 'var(--text-muted)' }}>
+                <span style={{ fontSize: '1rem', color: 'var(--text-muted)' }}>
                     {price !== 'Custom' ? '/mo' : ''}
                 </span>
             </div>
             <ul style={{ listStyle: 'none', marginBottom: '2.5rem', textAlign: 'left', paddingLeft: '1rem', flex: 1 }}>
                 {features.map((f, i) => (
-                    <li key={i} style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <span style={{ color: '#00C853' }}>✓</span> {f}
+                    <li key={i} style={{ marginBottom: '0.8rem', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)' }}>
+                        <span style={{ color: 'var(--primary)' }}>✓</span> {f}
                     </li>
                 ))}
             </ul>
             <Link href={ctaHref} style={btnStyle}
-                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-2px)'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.transform = 'none'; }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '0.85'; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.opacity = '1'; }}
             >
                 {ctaLabel}
             </Link>

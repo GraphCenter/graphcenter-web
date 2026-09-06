@@ -56,7 +56,7 @@ export default function ArchitecturePage() {
     };
 
     return (
-        <main className="pt-20 md:pt-32" style={{ minHeight: '100vh', background: 'linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)' }}>
+        <main className="pt-20 md:pt-32" style={{ minHeight: '100vh' }}>
             <style dangerouslySetInnerHTML={{__html: `
                 .arch-header { text-align: center; padding: 4rem 0 2rem; }
                 .spec-section { padding: 4rem 0; border-top: 1px solid var(--border); }
@@ -64,46 +64,44 @@ export default function ArchitecturePage() {
                 @media (min-width: 1024px) {
                     .spec-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
                 }
-                
-                .flow-card { background: white; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 2rem; position: relative; overflow-wrap: break-word; min-width: 0; }
+
+                .flow-card { background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: none; padding: 2rem; position: relative; overflow-wrap: break-word; min-width: 0; }
                 .flow-step { display: flex; gap: 1rem; margin-bottom: 1.5rem; position: relative; }
                 .flow-step:last-child { margin-bottom: 0; }
-                .flow-step:not(:last-child)::after { content: ''; position: absolute; left: 16px; top: 32px; bottom: -20px; width: 2px; background: #e2e8f0; }
-                
-                .step-number { width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: var(--primary); font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
+                .flow-step:not(:last-child)::after { content: ''; position: absolute; left: 16px; top: 32px; bottom: -20px; width: 2px; background: var(--border); }
+
+                .step-number { width: 34px; height: 34px; border-radius: 50%; background: rgba(0,82,204,0.12); color: var(--primary); font-weight: 600; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
                 .step-content { flex-grow: 1; min-width: 0; }
-                .step-title { font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; display: flex; align-items: center; gap: 6px; }
+                .step-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.25rem; display: flex; align-items: center; gap: 6px; color: var(--text-main); }
                 .step-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
-                
+
                 .db-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
                 @media (min-width: 768px) {
                     .db-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
                 }
-                
-                .db-card { background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); padding: 2rem; position: relative; transition: all 0.2s; overflow-wrap: break-word; min-width: 0; }
-                .db-card:hover { transform: translateY(-3px); border-color: var(--primary); }
+
+                .db-card { background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border); padding: 2rem; position: relative; transition: transform 0.25s ease, border-color 0.25s ease; overflow-wrap: break-word; min-width: 0; }
+                .db-card:hover { border-color: var(--primary); transform: translateY(-3px); }
                 .db-badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; font-family: monospace; }
-                .db-badge.hot { background: #fef2f2; color: #dc2626; border: 1px solid #fee2e2; }
-                .db-badge.warm { background: #fffbeb; color: #d97706; border: 1px solid #fef3c7; }
-                .db-badge.cold { background: #eff6ff; color: #2563eb; border: 1px solid #dbeafe; }
-                
-                .code-viewer { background: #0f172a; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid #334155; }
-                .code-header { background: #1e293b; padding: 0.75rem 1.25rem; display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; flex-wrap: wrap; border-bottom: 1px solid #334155; }
-                .code-pre { margin: 0; padding: 1.5rem; overflow-x: auto; color: #cbd5e1; font-family: monospace; font-size: 0.825rem; line-height: 1.5; text-align: left; }
-                
-                .schema-btn { padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; cursor: pointer; border: 1px solid transparent; background: transparent; color: #94a3b8; font-size: 0.8rem; font-family: inherit; transition: all 0.2s; }
-                .schema-btn.active { background: #334155; color: white; border-color: #475569; }
-                
-                .arch-pill { display: inline-flex; align-items: center; gap: 4px; background: var(--accent); color: var(--primary); padding: 0.25rem 0.6rem; border-radius: 30px; font-size: 0.75rem; font-weight: 600; margin-bottom: 1rem; }
+                .db-badge.hot { background: rgba(0,82,204,0.1); color: var(--primary); border: 1px solid rgba(0,82,204,0.25); }
+                .db-badge.warm { background: rgba(0,178,255,0.14); color: var(--primary-deep); border: 1px solid rgba(0,178,255,0.3); }
+                .db-badge.cold { background: var(--bg-alt); color: var(--text-muted); border: 1px solid var(--border); }
+
+                .code-viewer { background: #202020; border-radius: 4px; overflow: hidden; box-shadow: none; border: 1px solid var(--border); }
+                .code-header { background: rgba(255,255,255,0.05); padding: 0.75rem 1.25rem; display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; flex-wrap: wrap; border-bottom: 1px solid rgba(255,255,255,0.1); }
+                .code-pre { margin: 0; padding: 1.5rem; overflow-x: auto; color: #d8d8d8; font-family: monospace; font-size: 0.825rem; line-height: 1.5; text-align: left; }
+
+                .schema-btn { padding: 0.5rem 1rem; border-radius: 0px; font-weight: 500; cursor: pointer; border: 1px solid transparent; background: transparent; color: var(--text-muted); font-size: 0.8rem; font-family: inherit; transition: all 0.2s; }
+                .schema-btn.active { background: var(--text-main); color: white; border-color: var(--text-main); }
+
+                .arch-pill { display: inline-flex; align-items: center; gap: 4px; background: var(--accent); color: var(--primary); padding: 0.25rem 0.6rem; border-radius: var(--radius-pill); font-size: 0.75rem; font-weight: 600; margin-bottom: 1rem; }
             `}} />
 
             <div className="container">
                 {/* Header */}
                 <header className="arch-header">
-                    <div style={{ display: 'inline-block', padding: '0.5rem 1.5rem', background: 'var(--accent)', color: 'var(--primary)', borderRadius: '30px', fontWeight: 600, fontSize: '0.9rem', marginBottom: '1.5rem' }}>
-                        Enterprise-Grade Integrity
-                    </div>
-                    <h1 style={{ fontSize: 'clamp(2.25rem, 9vw, 3.5rem)', lineHeight: 1.1, marginBottom: '1.5rem', fontWeight: 900 }}>
+                    <span className="section-label">Enterprise-Grade Integrity</span>
+                    <h1 style={{ fontSize: 'clamp(2.25rem, 9vw, 3.5rem)', lineHeight: 1.1, marginBottom: '1.5rem' }}>
                         System <span className="gradient-text">Architecture Spec</span>
                     </h1>
                     <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '800px', margin: '0 auto', lineHeight: 1.6 }}>
@@ -243,16 +241,16 @@ export default function ArchitecturePage() {
                                     </div>
                                     <button
                                         onClick={handleCopy}
-                                        style={{ background: 'transparent', border: 'none', color: '#94a3b8', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.75rem', fontWeight: 600 }}
+                                        style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.75rem', fontWeight: 600 }}
                                     >
                                         <Copy size={14} />
                                         {copied ? 'Copied!' : 'Copy Schema'}
                                     </button>
                                 </div>
-                                <div style={{ background: '#090d16', padding: '1rem', borderBottom: '1px solid #1e293b', fontSize: '0.8rem', color: '#64748b' }}>
+                                <div style={{ background: 'rgba(255,255,255,0.02)', padding: '1rem', borderBottom: '1px solid var(--border)', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
-                                        <Terminal size={14} className="text-blue-500" />
-                                        <strong style={{ color: '#94a3b8' }}>{schemas[selectedSchema].title}</strong>
+                                        <Terminal size={14} style={{ color: 'var(--primary)' }} />
+                                        <strong style={{ color: 'var(--text-tertiary)' }}>{schemas[selectedSchema].title}</strong>
                                     </div>
                                     <p style={{ fontSize: '0.75rem' }}>{schemas[selectedSchema].description}</p>
                                 </div>

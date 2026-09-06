@@ -1,19 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400&display=swap');
 @import "tailwindcss";
 
+/* Ventriloc — light, editorial, chart-driven. One neutral ink, two brand
+   blues lifted straight from the GraphCenter logo (deep + bright), used for
+   links/highlights/chart strokes. No dark mode; this is the only theme. */
 :root {
-  --primary: #0052CC;
-  --primary-deep: #0747A6;
-  --secondary: #00B2FF;
-  --accent: #E6F0FF;
-  --bg-page: #ffffff;
-  --bg-card: rgba(255, 255, 255, 0.8);
-  --text-main: #172B4D;
-  --text-muted: #5E6C84;
-  --border: #DFE1E6;
-  --radius: 12px;
-  --shadow: 0 4px 20px rgba(0, 82, 204, 0.08);
-  --glass: rgba(255, 255, 255, 0.7);
+  /* Neutral surfaces */
+  --bg-page: #ffffff;      /* Canvas White */
+  --bg-card: #efefef;      /* Ash */
+  --bg-alt: #f5f5f5;       /* Fog — alternating section band */
+  --bg-ivory: #ebe6dd;     /* Ivory */
+  /* Ink */
+  --text-main: #202020;    /* Graphite */
+  --text-muted: #4d4d4d;   /* Steel */
+  --text-tertiary: #828282;/* Slate */
+  --border: #e8e8e8;       /* Mist */
+  /* Accents — the logo's own two blues */
+  --primary: #0052cc;      /* Deep Blue */
+  --secondary: #00b2ff;    /* Bright Blue */
+  --accent: #e6f0fb;       /* faint blue tint for chips */
+  --deep-verdant: #00b2ff; /* alias kept for existing gradient call sites */
+  /* Legacy alias so call sites reading --primary-deep still resolve */
+  --primary-deep: #003d99;
+  --radius: 8px;               /* standard card radius */
+  --radius-asymmetric: 6px 0px 0px 0px; /* signature card shape */
+  --radius-tag: 20px;
+  --radius-pill: 200px;
+  --shadow: none;
+  --glass: #efefef;
+  --nav-bg: #efefef;
+  --nav-panel-bg: #ffffff;
+  --nav-hover-bg: rgba(32, 32, 32, 0.06);
+  color-scheme: light;
 }
 
 * {
@@ -26,14 +44,23 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 400;
   color: var(--text-main);
-  background: transparent;
   scroll-behavior: smooth;
 }
 
+html {
+  background: var(--bg-page);
+}
+
+/* Deliberately transparent — NetworkBackground is a fixed, negative-z-index
+   canvas. If body painted its own opaque background here (instead of
+   propagating to the viewport via html above), that background would paint
+   over the canvas as a normal in-flow box and hide it completely. */
 body {
   min-height: 100vh;
+  background: transparent;
 }
 
 a {
@@ -41,12 +68,49 @@ a {
   text-decoration: none;
 }
 
+/* PolySans substitute per design1.md — headings at weight 400 only, never bold */
 h1,
 h2,
 h3,
 h4 {
-  font-weight: 700;
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 400;
   letter-spacing: -0.02em;
+}
+
+/* Type scale (design1.md): caption 14 / subheading 18 / heading 32 /
+   heading-lg 40 / display 66 (lh 0.91, ls -1.32px) */
+.text-display {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 66px;
+  line-height: 0.91;
+  letter-spacing: -1.32px;
+}
+
+.text-heading-lg {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.text-heading {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+.text-subheading {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.text-caption {
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 /* Utilities */
@@ -56,12 +120,52 @@ h4 {
   padding: 0 2rem;
 }
 
+/* Standard content card — 8px radius, Ash surface, no shadow */
 .glass {
-  background: var(--glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow);
+  border-radius: var(--radius);
+}
+
+/* Ventriloc's signature card shape — soft top-left corner only, sharp elsewhere */
+.card-asymmetric {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-asymmetric);
+  box-shadow: none;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.card-asymmetric:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.7s ease both;
+}
+
+/* Gentle continuous drift for the hero's dashboard cards — keeps the hero
+   feeling alive after the entrance animation settles. */
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-card {
+  animation: floatCard 6s ease-in-out infinite;
 }
 
 .gradient-text {
@@ -71,27 +175,29 @@ h4 {
   -webkit-text-fill-color: transparent;
 }
 
+/* Primary CTA — filled Graphite, white text, sharp 0px corners (never a
+   pill, never an accent-colored fill per design1.md) */
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--primary-deep));
-  color: white;
-  padding: 0.8rem 2rem;
-  border-radius: 30px;
-  font-weight: 600;
-  border: none;
+  background: var(--text-main);
+  color: #ffffff;
+  padding: 14.4px 25.6px;
+  border-radius: 0px;
+  font-weight: 500;
+  font-size: 14px;
+  border: 1px solid var(--text-main);
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 10px 20px -5px rgba(0, 82, 204, 0.3);
+  transition: opacity 0.2s ease;
+  box-shadow: none;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 25px -5px rgba(0, 82, 204, 0.4);
+  opacity: 0.85;
 }
 
 /* Large CTA button — responsive sizing */
 .btn-cta {
-  font-size: 1.2rem;
-  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  padding: 1rem 2.5rem;
 }
 
 @media (max-width: 480px) {
@@ -103,21 +209,21 @@ h4 {
   }
 }
 
+/* Ghost button — transparent fill, 1px Graphite border, sharp corners */
 .btn-secondary {
-  background: white;
-  color: var(--primary);
+  background: transparent;
+  color: var(--text-main);
   padding: 0.8rem 2rem;
-  border-radius: 30px;
-  font-weight: 600;
-  border: 1px solid var(--border);
+  border-radius: 0px;
+  font-weight: 500;
+  border: 1px solid var(--text-main);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .btn-secondary:hover {
-  background: var(--accent);
-  border-color: var(--primary);
-  transform: translateY(-2px);
+  color: #ffffff;
+  background: var(--text-main);
 }
 
 .list-spaced>li {
@@ -129,28 +235,32 @@ h4 {
 }
 
 .section {
-  padding: 10rem 0;
+  padding: 80px 0;
 }
 
+/* Nav item inside the floating Ash pill — hierarchy from weight/color, a
+   soft rounded hover chip (not the sharp button radius) */
 .nav-link {
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  padding: 0.5rem 0.7rem;
+  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .nav-link:hover {
-  background-color: rgba(0, 82, 204, 0.05);
+  color: var(--text-main);
+  background-color: var(--nav-hover-bg);
 }
 
 .nav-link-active {
-  background-color: var(--accent);
-  color: var(--primary) !important;
+  background-color: transparent;
+  color: var(--text-main) !important;
   font-weight: 600;
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 4rem 0;
+    padding: 40px 0;
   }
 }
 
@@ -217,15 +327,15 @@ h4 {
 }
 
 .rounded-xl {
-  border-radius: 12px;
+  border-radius: 8px;
 }
 
 .rounded-3xl {
-  border-radius: 24px;
+  border-radius: 8px;
 }
 
 .rounded-full {
-  border-radius: 9999px;
+  border-radius: var(--radius-pill);
 }
 
 .grid {
@@ -273,15 +383,15 @@ h4 {
 }
 
 .font-bold {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .font-black {
-  font-weight: 900;
+  font-weight: 600;
 }
 
 .font-semibold {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .text-center {
@@ -289,15 +399,15 @@ h4 {
 }
 
 .text-gray-700 {
-  color: #374151;
+  color: var(--text-main);
 }
 
 .text-gray-600 {
-  color: #4B5563;
+  color: var(--text-muted);
 }
 
 .text-gray-500 {
-  color: #6B7280;
+  color: var(--text-tertiary);
 }
 
 .text-blue-600 {
@@ -305,27 +415,27 @@ h4 {
 }
 
 .text-green-600 {
-  color: #059669;
+  color: #4d7a52;
 }
 
 .text-red-600 {
-  color: #DC2626;
+  color: #b5462f;
 }
 
 .bg-white\/50 {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(32, 32, 32, 0.03);
 }
 
 .bg-blue-50 {
-  background-color: #eff6ff;
+  background-color: rgba(0, 82, 204, 0.08);
 }
 
 .bg-green-100 {
-  background-color: #d1fae5;
+  background-color: rgba(77, 122, 82, 0.1);
 }
 
 .bg-red-50 {
-  background-color: #fef2f2;
+  background-color: rgba(181, 70, 47, 0.08);
 }
 
 .flex {
@@ -352,8 +462,10 @@ h4 {
   overflow: hidden;
 }
 
+/* No shadows per design1.md — kept as a no-op utility so existing className
+   usages don't need to be hunted down individually. */
 .shadow-2xl {
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  box-shadow: none;
 }
 
 .max-w-4xl {
@@ -478,14 +590,15 @@ h4 {
 }
 
 .hover-scale:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .hover-glow:hover {
-  box-shadow: 0 10px 25px -5px rgba(0, 82, 204, 0.4);
+  box-shadow: none;
 }
 
-/* Admin Dashboard "Distinguished" Aesthetics */
+/* Admin Dashboard — internal tool, kept dark and separate from the public
+   Ventriloc palette */
 .glass-dark {
   background: rgba(10, 15, 30, 0.7);
   backdrop-filter: blur(16px);
@@ -509,8 +622,8 @@ h4 {
 
 .auth-input:focus {
   outline: none;
-  border-color: #00b2ff;
-  box-shadow: 0 0 15px rgba(0, 178, 255, 0.3);
+  border-color: #0052cc;
+  box-shadow: 0 0 15px rgba(0, 82, 204, 0.3);
 }
 
 .data-table {
@@ -530,9 +643,91 @@ h4 {
   text-transform: uppercase;
   font-size: 0.8rem;
   letter-spacing: 1px;
-  color: #00b2ff;
+  color: #0052cc;
 }
 
 .data-table tr:hover td {
   background: rgba(255, 255, 255, 0.03);
+}
+
+/* Small uppercase eyebrow label above section headlines — the deep logo
+   blue for contrast; the bright blue is reserved for larger fills/chart
+   strokes where contrast against white matters less. */
+.section-label {
+  display: inline-block;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+
+/* Print — hides site chrome (nav, footer, ambient canvas) so any page,
+   the Technical Whitepaper especially, prints/exports-to-PDF cleanly. */
+@media print {
+  .navbar-fixed,
+  footer,
+  canvas {
+    display: none !important;
+  }
+
+  body {
+    padding-top: 0 !important;
+  }
+
+  a {
+    color: var(--text-main) !important;
+    text-decoration: none !important;
+  }
+
+  .whitepaper-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* Pricing feature-comparison table */
+.pricing-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.pricing-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.pricing-table th {
+  background: var(--bg-alt);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.pricing-table th:first-child,
+.pricing-table td:first-child {
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.pricing-table tr:last-child td {
+  border-bottom: none;
+}
+
+.pricing-table td.featured-col,
+.pricing-table th.featured-col {
+  background: var(--bg-card);
 }

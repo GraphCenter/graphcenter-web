@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ShieldCheck, Lock, Eye, ScrollText, Server, Scale } from 'lucide-react';
 import PoweredByBadge from '@/components/PoweredByBadge';
+import Section from '@/components/ui/Section';
 
 export const metadata: Metadata = {
     title: 'Trust & Security | GraphCenter',
@@ -43,57 +44,51 @@ const PILLARS = [
 
 export default function TrustPage() {
     return (
-        <main className="min-h-screen" style={{ paddingTop: '8rem', paddingBottom: '6rem' }}>
-            <div className="container">
-                <div className="max-w-4xl mx-auto">
-                    <div className="inline-block px-4 py-1 rounded-full bg-blue-50 text-blue-600 font-semibold text-sm mb-4">
-                        Trust &amp; Security
-                    </div>
-                    <h1 className="text-4xl md:text-5xl font-black mb-4 leading-tight">
+        <main>
+            <Section spacing="tight" style={{ paddingTop: '10rem' }}>
+                <div style={{ maxWidth: '820px' }}>
+                    <span className="section-label">Trust & Security</span>
+                    <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
                         Safe to hand real work
                     </h1>
-                    <p className="text-gray-600 leading-relaxed mb-12 max-w-3xl">
-                        GraphControl AI is an autonomous system that changes production data. The reason it can be trusted
-                        with that is architectural, not aspirational: a hard boundary the agent cannot cross, a human in
-                        the loop for every commit, and a governance and privacy programme around it. This page summarises
-                        the posture; the underlying policies and evidence are available to customers and partners on request.
+                    <p style={{ color: 'var(--text-muted)', fontSize: '18px', lineHeight: 1.6 }}>
+                        GraphControl AI is an autonomous system that changes production data. The reason it can be trusted with that is architectural, not aspirational: a hard boundary the agent cannot cross, a human in the loop for every commit, and a governance and privacy programme around it. This page summarises the posture; the underlying policies and evidence are available to customers and partners on request.
                     </p>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                        {PILLARS.map((p) => {
-                            const Icon = p.icon;
-                            return (
-                                <div key={p.title} className="glass" style={{ padding: '2rem', borderRadius: 'var(--radius)' }}>
-                                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-4">
-                                        <Icon size={22} />
-                                    </div>
-                                    <h2 className="text-lg font-bold mb-2">{p.title}</h2>
-                                    <p className="text-sm text-gray-600 leading-relaxed">{p.body}</p>
-                                </div>
-                            );
-                        })}
-                    </div>
-
-                    <div className="glass mt-10" style={{ padding: '2rem', borderRadius: 'var(--radius)' }}>
-                        <h2 className="text-lg font-bold mb-2">Reporting a vulnerability</h2>
-                        <p className="text-sm text-gray-600 leading-relaxed">
-                            Email <span style={{ fontWeight: 600, color: 'var(--primary)' }}>security@graphcenter.ai</span> with
-                            details and reproduction steps. We acknowledge reports within three business days and will keep
-                            you updated through remediation. Please do not disclose publicly until a fix is released.
-                        </p>
-                    </div>
-
-                    <p className="text-gray-500 text-sm mt-8">
-                        See also our <Link href="/terms" style={{ color: 'var(--primary)', fontWeight: 600 }}>Terms of Service</Link> and{' '}
-                        <Link href="/privacy" style={{ color: 'var(--primary)', fontWeight: 600 }}>Privacy Policy</Link>. Security
-                        and compliance documentation is drafted and reviewed by qualified counsel before it is relied upon.
-                    </p>
-
-                    <div className="mt-16 pt-8 border-t border-gray-100 flex justify-center">
-                        <PoweredByBadge />
-                    </div>
                 </div>
-            </div>
+            </Section>
+
+            <Section spacing="tight">
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+                    {PILLARS.map((p) => {
+                        const Icon = p.icon;
+                        return (
+                            <div key={p.title} className="card-asymmetric" style={{ padding: '2rem' }}>
+                                <div style={{ width: '48px', height: '48px', borderRadius: '8px', background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', marginBottom: '1rem' }}>
+                                    <Icon size={22} />
+                                </div>
+                                <h2 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '0.5rem', color: 'var(--text-main)' }}>{p.title}</h2>
+                                <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: 1.6 }}>{p.body}</p>
+                            </div>
+                        );
+                    })}
+                </div>
+
+                <div className="card-asymmetric" style={{ padding: '2rem', marginTop: '2rem' }}>
+                    <h2 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '0.5rem', color: 'var(--text-main)' }}>Reporting a vulnerability</h2>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: 1.6 }}>
+                        Email <span style={{ fontWeight: 600, color: 'var(--primary)' }}>security@graphcenter.ai</span> with details and reproduction steps. We acknowledge reports within three business days and will keep you updated through remediation. Please do not disclose publicly until a fix is released.
+                    </p>
+                </div>
+
+                <p style={{ color: 'var(--text-tertiary)', fontSize: '0.9rem', marginTop: '2rem' }}>
+                    See also our <Link href="/terms" style={{ color: 'var(--primary)', fontWeight: 500 }}>Terms of Service</Link> and{' '}
+                    <Link href="/privacy" style={{ color: 'var(--primary)', fontWeight: 500 }}>Privacy Policy</Link>. Security and compliance documentation is drafted and reviewed by qualified counsel before it is relied upon.
+                </p>
+
+                <div style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'center' }}>
+                    <PoweredByBadge />
+                </div>
+            </Section>
         </main>
     );
 }

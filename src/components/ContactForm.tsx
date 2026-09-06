@@ -36,14 +36,27 @@ export default function ContactForm() {
         }
     };
 
-    const inputClasses = "w-full p-4 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm";
-    const labelClasses = "block text-sm font-semibold text-gray-700 mb-2 ml-1";
+    const inputStyle: React.CSSProperties = {
+        width: '100%',
+        padding: '1rem',
+        borderRadius: '0px',
+        border: '1px solid var(--border)',
+        outline: 'none',
+        transition: 'border-color 0.2s ease',
+        background: 'var(--bg-alt)',
+        color: 'var(--text-main)',
+        fontFamily: 'inherit',
+        fontSize: '15px',
+    };
+    const labelClasses = "block text-sm font-semibold mb-2 ml-1";
+    const labelStyle: React.CSSProperties = { color: 'var(--text-muted)' };
 
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="glass p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden"
+            className="card-asymmetric p-8 md:p-12 relative overflow-hidden"
+            style={{ background: '#ffffff' }}
         >
             <AnimatePresence mode="wait">
                 {status === 'success' ? (
@@ -58,9 +71,9 @@ export default function ContactForm() {
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                             transition={{ type: "spring", stiffness: 200, damping: 10 }}
-                            className="inline-block p-4 rounded-full bg-green-100 mb-6"
+                            className="inline-block p-4 rounded-full bg-blue-50 mb-6"
                         >
-                            <CheckCircle2 className="w-16 h-16 text-green-600" />
+                            <CheckCircle2 className="w-16 h-16 text-blue-600" />
                         </motion.div>
                         <h3 className="text-3xl font-bold mb-4">Message Sent!</h3>
                         <p className="text-gray-600 mb-8">Thank you for reaching out. Our team will get back to you shortly.</p>
@@ -82,22 +95,22 @@ export default function ContactForm() {
                     >
                         <div className="grid md:grid-cols-2 gap-6">
                             <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.1 }}>
-                                <label className={labelClasses}>Full Name</label>
+                                <label className={labelClasses} style={labelStyle}>Full Name</label>
                                 <input
                                     required
                                     type="text"
-                                    className={inputClasses}
+                                    style={inputStyle}
                                     placeholder="John Doe"
                                     value={formData.name}
                                     onChange={e => setFormData({ ...formData, name: e.target.value })}
                                 />
                             </motion.div>
                             <motion.div initial={{ x: 20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.1 }}>
-                                <label className={labelClasses}>Work Email</label>
+                                <label className={labelClasses} style={labelStyle}>Work Email</label>
                                 <input
                                     required
                                     type="email"
-                                    className={inputClasses}
+                                    style={inputStyle}
                                     placeholder="john@company.com"
                                     value={formData.email}
                                     onChange={e => setFormData({ ...formData, email: e.target.value })}
@@ -106,11 +119,11 @@ export default function ContactForm() {
                         </div>
 
                         <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
-                            <label className={labelClasses}>Company Name</label>
+                            <label className={labelClasses} style={labelStyle}>Company Name</label>
                             <input
                                 required
                                 type="text"
-                                className={inputClasses}
+                                style={inputStyle}
                                 placeholder="GraphCenter Inc."
                                 value={formData.company}
                                 onChange={e => setFormData({ ...formData, company: e.target.value })}
@@ -118,11 +131,11 @@ export default function ContactForm() {
                         </motion.div>
 
                         <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }}>
-                            <label className={labelClasses}>Summary of Needs</label>
+                            <label className={labelClasses} style={labelStyle}>Summary of Needs</label>
                             <textarea
                                 required
                                 rows={4}
-                                className={inputClasses}
+                                style={inputStyle}
                                 placeholder="Tell us about the autonomous ecosystems you're envisioning..."
                                 value={formData.summary}
                                 onChange={e => setFormData({ ...formData, summary: e.target.value })}
@@ -134,7 +147,7 @@ export default function ContactForm() {
                             whileTap={{ scale: 0.98 }}
                             disabled={status === 'loading'}
                             type="submit"
-                            className="w-full btn-primary py-4 rounded-xl flex items-center justify-center gap-2 text-lg font-bold shadow-lg shadow-blue-500/30"
+                            className="w-full btn-primary py-4 flex items-center justify-center gap-2 text-lg font-bold"
                         >
                             {status === 'loading' ? (
                                 <Loader2 className="w-6 h-6 animate-spin" />

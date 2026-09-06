@@ -2,142 +2,198 @@
 
 import { useEffect, useRef } from 'react';
 
+interface Node {
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
+    r: number;
+    accent: boolean;
+    phase: number;
+}
+
+const LINK_DISTANCE = 160;
+const NODE_DENSITY = 13000; // px^2 per node
+const ACCENT_RATIO = 6; // roughly 1-in-6 nodes carries the Bright Blue accent
+
+// Cursor interactivity — nodes get pushed away from the pointer and draw a
+// temporary "hub" of connecting lines back to it, like the original site.
+const CURSOR_REPEL_DISTANCE = 120;
+const CURSOR_REPEL_STRENGTH = 2.2;
+const CURSOR_LINK_DISTANCE = 220;
+
+const BASE_RGB = '0, 82, 204'; // Deep Blue — the logo's own palette
+const ACCENT_RGB = '0, 178, 255'; // Bright Blue
+
+/**
+ * Ambient sitewide graph-node network — restored per user request, recolored
+ * entirely in the GraphCenter logo's two blues, and made interactive: nodes
+ * near the cursor are gently pushed away and draw connecting lines back to
+ * it, echoing the original site's behavior.
+ */
 export default function NetworkBackground() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
-
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        let animationFrameId: number;
-        let particles: Particle[] = [];
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        let nodes: Node[] = [];
+        let rafId = 0;
+        const mouse: { x: number | null; y: number | null } = { x: null, y: null };
+
+        const buildNodes = () => {
+            const count = Math.max(24, Math.floor((width * height) / NODE_DENSITY));
+            nodes = Array.from({ length: count }, (_, i) => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.18,
+                vy: (Math.random() - 0.5) * 0.18,
+                r: Math.random() * 1.3 + 1.3,
+                accent: i % ACCENT_RATIO === 0,
+                phase: Math.random() * Math.PI * 2,
+            }));
+        };
 
         const resize = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width * window.devicePixelRatio;
+            canvas.height = height * window.devicePixelRatio;
+            canvas.style.width = `${width}px`;
+            canvas.style.height = `${height}px`;
+            ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+            buildNodes();
         };
 
-        window.addEventListener('resize', resize);
         resize();
+        window.addEventListener('resize', resize);
 
-        class Particle {
-            x: number;
-            y: number;
-            vx: number;
-            vy: number;
-            radius: number;
-
-            constructor() {
-                this.x = Math.random() * canvas!.width;
-                this.y = Math.random() * canvas!.height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.radius = Math.random() * 2 + 1;
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < 0 || this.x > canvas!.width) this.vx = -this.vx;
-                if (this.y < 0 || this.y > canvas!.height) this.vy = -this.vy;
-            }
-
-            draw() {
-                if (!ctx) return;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 82, 204, 0.4)';
-                ctx.fill();
-            }
-        }
-
-        const initParticles = () => {
-            particles = [];
-            const numberOfParticles = Math.floor((canvas.width * canvas.height) / 15000);
-            for (let i = 0; i < numberOfParticles; i++) {
-                particles.push(new Particle());
-            }
+        const handleMove = (x: number, y: number) => {
+            mouse.x = x;
+            mouse.y = y;
+        };
+        const handlePointerMove = (e: PointerEvent) => handleMove(e.clientX, e.clientY);
+        const handleTouchMove = (e: TouchEvent) => {
+            const t0 = e.touches[0];
+            if (t0) handleMove(t0.clientX, t0.clientY);
+        };
+        const handleLeave = () => {
+            mouse.x = null;
+            mouse.y = null;
         };
 
-        initParticles();
+        window.addEventListener('pointermove', handlePointerMove);
+        window.addEventListener('touchmove', handleTouchMove, { passive: true });
+        window.addEventListener('touchend', handleLeave);
+        document.addEventListener('mouseleave', handleLeave);
 
-        // Optional interactivity with mouse position
-        let mouse = { x: -1000, y: -1000 };
-        const handleMouseMove = (e: MouseEvent) => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        };
-        const handleMouseOut = () => {
-            mouse.x = -1000;
-            mouse.y = -1000;
-        };
-        
-        window.addEventListener('mousemove', handleMouseMove);
-        window.addEventListener('mouseout', handleMouseOut);
+        let t = 0;
+        const tick = () => {
+            t += 1;
+            ctx.clearRect(0, 0, width, height);
 
-        const drawLines = () => {
-            if (!ctx) return;
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
+            const mx = mouse.x;
+            const my = mouse.y;
 
-                    if (distance < 120) {
+            // Update positions: base drift, gently bouncing off the viewport
+            // edges, plus a push away from the cursor when nearby.
+            for (const n of nodes) {
+                n.x += n.vx;
+                n.y += n.vy;
+                if (n.x < 0 || n.x > width) n.vx *= -1;
+                if (n.y < 0 || n.y > height) n.vy *= -1;
+
+                if (mx !== null && my !== null) {
+                    const dx = n.x - mx;
+                    const dy = n.y - my;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < CURSOR_REPEL_DISTANCE && dist > 0.01) {
+                        const force = (1 - dist / CURSOR_REPEL_DISTANCE) * CURSOR_REPEL_STRENGTH;
+                        n.x += (dx / dist) * force;
+                        n.y += (dy / dist) * force;
+                    }
+                }
+            }
+
+            // Edges — only between nearby nodes, fading out with distance
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const a = nodes[i];
+                    const b = nodes[j];
+                    const dx = a.x - b.x;
+                    const dy = a.y - b.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < LINK_DISTANCE) {
+                        const alpha = (1 - dist / LINK_DISTANCE) * 0.11;
+                        ctx.strokeStyle = `rgba(${BASE_RGB}, ${alpha})`;
+                        ctx.lineWidth = 1;
                         ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(0, 178, 255, ${1 - distance / 120})`;
-                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
                         ctx.stroke();
                     }
                 }
-
-                // Interactive connection to mouse
-                const dxMouse = particles[i].x - mouse.x;
-                const dyMouse = particles[i].y - mouse.y;
-                const distanceMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-                if (distanceMouse < 150) {
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(mouse.x, mouse.y);
-                    ctx.strokeStyle = `rgba(0, 82, 204, ${1 - distanceMouse / 150})`;
-                    ctx.lineWidth = 1;
-                    ctx.stroke();
-                }
             }
+
+            // Cursor hub — nearby nodes draw a connecting line back to the
+            // pointer, brightening the closer they are.
+            if (mx !== null && my !== null) {
+                for (const n of nodes) {
+                    const dx = n.x - mx;
+                    const dy = n.y - my;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < CURSOR_LINK_DISTANCE) {
+                        const alpha = (1 - dist / CURSOR_LINK_DISTANCE) * 0.45;
+                        ctx.strokeStyle = `rgba(${ACCENT_RGB}, ${alpha})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(mx, my);
+                        ctx.lineTo(n.x, n.y);
+                        ctx.stroke();
+                    }
+                }
+                ctx.beginPath();
+                ctx.fillStyle = `rgba(${ACCENT_RGB}, 0.5)`;
+                ctx.arc(mx, my, 3, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // Nodes — mostly a faint Deep Blue dot, occasionally a Bright
+            // Blue accent that softly twinkles
+            for (const n of nodes) {
+                const twinkle = n.accent ? 0.34 + Math.sin(t * 0.02 + n.phase) * 0.12 : 0.26;
+                ctx.beginPath();
+                ctx.fillStyle = n.accent
+                    ? `rgba(${ACCENT_RGB}, ${twinkle})`
+                    : `rgba(${BASE_RGB}, ${twinkle})`;
+                ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            rafId = requestAnimationFrame(tick);
         };
 
-        const animate = () => {
-            if (!ctx) return;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-            drawLines();
-
-            animationFrameId = requestAnimationFrame(animate);
-        };
-
-        animate();
+        rafId = requestAnimationFrame(tick);
 
         return () => {
             window.removeEventListener('resize', resize);
-            window.removeEventListener('mousemove', handleMouseMove);
-            window.removeEventListener('mouseout', handleMouseOut);
-            cancelAnimationFrame(animationFrameId);
+            window.removeEventListener('pointermove', handlePointerMove);
+            window.removeEventListener('touchmove', handleTouchMove);
+            window.removeEventListener('touchend', handleLeave);
+            document.removeEventListener('mouseleave', handleLeave);
+            cancelAnimationFrame(rafId);
         };
     }, []);
 
     return (
         <canvas
             ref={canvasRef}
+            aria-hidden="true"
             style={{
                 position: 'fixed',
                 top: 0,
@@ -146,7 +202,6 @@ export default function NetworkBackground() {
                 height: '100%',
                 zIndex: -1,
                 pointerEvents: 'none',
-                background: 'linear-gradient(135deg, #f8faff 0%, #eef5ff 100%)',
             }}
         />
     );

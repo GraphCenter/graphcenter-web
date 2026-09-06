@@ -61,7 +61,7 @@ export default function TermsPage() {
                         ))}
                     </div>
 
-                    <div className="mt-16 pt-8 border-t border-gray-100 flex justify-center">
+                    <div className="mt-16 pt-8 flex justify-center" style={{ borderTop: '1px solid var(--border)' }}>
                         <PoweredByBadge />
                     </div>
                 </div>

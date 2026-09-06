@@ -15,17 +15,17 @@ export default function Loading() {
                         position: absolute;
                         width: 14px;
                         height: 14px;
-                        background: #0052cc;
+                        background: var(--primary);
                         border-radius: 50%;
                         animation: pulse-node 1.5s infinite ease-in-out;
                     }
                     .node-1 { top: 0; left: 33px; animation-delay: 0s; }
                     .node-2 { bottom: 0; left: 0; animation-delay: 0.5s; }
                     .node-3 { bottom: 0; right: 0; animation-delay: 1s; }
-                    
+
                     .line {
                         position: absolute;
-                        background: rgba(0, 178, 255, 0.4);
+                        background: rgba(0, 82, 204, 0.4);
                         border-radius: 2px;
                         z-index: -1;
                     }
@@ -36,11 +36,11 @@ export default function Loading() {
 
                     @keyframes pulse-node {
                         0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(0, 82, 204, 0); }
-                        50% { transform: scale(1.4); box-shadow: 0 0 20px rgba(0, 178, 255, 0.8); background: #00b2ff; }
+                        50% { transform: scale(1.4); box-shadow: 0 0 16px rgba(0, 178, 255, 0.5); background: var(--secondary); }
                     }
                     @keyframes pulse-line {
-                        0%, 100% { opacity: 0.2; box-shadow: 0 0 0 rgba(0, 178, 255, 0); }
-                        50% { opacity: 1; box-shadow: 0 0 10px rgba(0, 178, 255, 0.5); }
+                        0%, 100% { opacity: 0.2; box-shadow: 0 0 0 rgba(0, 82, 204, 0); }
+                        50% { opacity: 1; box-shadow: 0 0 10px rgba(0, 82, 204, 0.5); }
                     }
                     @keyframes spin-loader {
                         from { transform: rotate(0deg); }
