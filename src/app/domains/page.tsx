@@ -268,25 +268,32 @@ export default function DomainsPage() {
                             </div>
                             <h3 className="feature-title">Mechanical 3D Design</h3>
                             <p className="feature-desc">
-                                A real WebGL 3D CAD viewport in the browser — not a static preview. Every part renders as genuine procedural geometry, not a generic icon.
+                                A live engineering system of record. Requirements, parts, interfaces and tests are linked in one systems graph, so a design change recalculates what it affects instead of waiting for a review meeting.
                             </p>
                             <ul className="bullet-list">
                                 <li>
                                     <CheckCircle2 size={16} style={{ flexShrink: 0, color: 'var(--primary)' }} />
-                                    <span>Bolts, nuts, brackets, bearings, PCBs, and sensors each render as real, distinguishable 3D geometry — a hex nut genuinely has a drilled hole, not a placeholder cube.</span>
+                                    <span>Requirements are versioned engineering objects with units, limits and a verification method — traced to the parts that satisfy them and the evidence that proves it. Anything allocated to nothing is reported, not quietly ignored.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} style={{ flexShrink: 0, color: 'var(--primary)' }} />
-                                    <span>Click-to-select, drag-to-reposition, and drag-and-drop assembly placement directly in the 3D scene.</span>
+                                    <span>Mass and load budgets re-evaluate as you edit. Insert a part and the total moves on the same frame, the parts that push it over turn red in the viewport, and the requirements now at risk are named.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} style={{ flexShrink: 0, color: 'var(--primary)' }} />
-                                    <span>Explode view and shaded/wireframe/x-ray modes, with each route rendering the layout that fits its content — a live 3D viewport, a part catalog grid, or a model review pane.</span>
+                                    <span>Propose a revision on a branch, review the diff beside its verification impact, then merge to the baseline. A change that introduces a new failing check needs a recorded override to merge.</span>
+                                </li>
+                                <li>
+                                    <CheckCircle2 size={16} style={{ flexShrink: 0, color: 'var(--primary)' }} />
+                                    <span>All of it on a real WebGL viewport: bolts, nuts, brackets, bearings, PCBs and sensors render as genuine procedural geometry — a hex nut has a drilled hole, not a placeholder cube — with click-to-select, drag-to-place assembly, explode view and shaded/wireframe/x-ray modes.</span>
                                 </li>
                             </ul>
                             <div className="tech-specs-box">
                                 <h5>Domain Spec</h5>
                                 <ul className="tech-specs-list">
+                                    <li><span>Model:</span> <span>Systems graph — requirements &rarr; parts &rarr; tests</span></li>
+                                    <li><span>Verification:</span> <span>Live budget evaluation, in-session</span></li>
+                                    <li><span>Change control:</span> <span>Branch / diff / review / merge</span></li>
                                     <li><span>Renderer:</span> <span>WebGL (react-three-fiber)</span></li>
                                     <li><span>Geometry:</span> <span>Procedural, per-part-type</span></li>
                                     <li><span>Layouts:</span> <span>Viewport / Catalog / Model Review</span></li>

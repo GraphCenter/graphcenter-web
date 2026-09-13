@@ -69,11 +69,11 @@ const FEATURES: SubsystemFeature[] = [
         id: 'mechanical-3d',
         subsystem: 'Mechanical 3D Design',
         pillar: 'Technical & Industrial',
-        capability: 'Real WebGL CAD viewport with procedural per-part geometry (bolts, nuts, brackets, bearings), drag-and-drop assembly, and explode view.',
-        legacyDrawback: 'Desktop-only CAD software requiring a separate license and install per seat, no web access.',
+        capability: 'A systems graph linking requirements, parts, interfaces and tests, with mass and load budgets re-evaluated live as the design changes — on top of a real WebGL CAD viewport with procedural per-part geometry.',
+        legacyDrawback: 'Requirements in documents, geometry in a desktop CAD seat, and verification in a spreadsheet — three sources of truth that only reconcile at a review meeting.',
         dataTier: 'Hot Tier (In-memory transactional store)',
         protocol: 'Client-rendered WebGL (react-three-fiber)',
-        efficiency: 'Browser-native'
+        efficiency: 'Live in-session'
     },
     {
         id: 'chemical-engineering',
