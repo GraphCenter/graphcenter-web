@@ -69,7 +69,7 @@ const FEATURES: SubsystemFeature[] = [
         id: 'mechanical-3d',
         subsystem: 'Mechanical 3D Design',
         pillar: 'Technical & Industrial',
-        capability: 'A systems graph linking requirements, parts, interfaces and tests, with mass and load budgets re-evaluated live as the design changes — on top of a real WebGL CAD viewport with procedural per-part geometry.',
+        capability: 'A systems graph linking requirements, parts, interfaces and tests, with budgets re-evaluated when a new CAD revision arrives — a coordination layer over the CAD/PLM seats where design actually happens, not another CAD tool.',
         legacyDrawback: 'Requirements in documents, geometry in a desktop CAD seat, and verification in a spreadsheet — three sources of truth that only reconcile at a review meeting.',
         dataTier: 'Hot Tier (In-memory transactional store)',
         protocol: 'Client-rendered WebGL (react-three-fiber)',

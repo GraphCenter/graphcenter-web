@@ -268,7 +268,7 @@ export default function DomainsPage() {
                             </div>
                             <h3 className="feature-title">Mechanical 3D Design</h3>
                             <p className="feature-desc">
-                                A live engineering system of record. Requirements, parts, interfaces and tests are linked in one systems graph, so a design change recalculates what it affects instead of waiting for a review meeting.
+                                A coordination and change-monitoring layer over the CAD and PLM systems where design already happens. Requirements, parts, interfaces and tests live in one systems graph, so when a new CAD revision arrives the platform recalculates what it affects — instead of waiting for a review meeting.
                             </p>
                             <ul className="bullet-list">
                                 <li>
@@ -277,15 +277,19 @@ export default function DomainsPage() {
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} style={{ flexShrink: 0, color: 'var(--primary)' }} />
-                                    <span>Mass and load budgets re-evaluate as you edit. Insert a part and the total moves on the same frame, the parts that push it over turn red in the viewport, and the requirements now at risk are named.</span>
+                                    <span>When a revision lands, budgets re-evaluate immediately: the parts that push a total past its limit turn red in the viewport, and the requirements now at risk are named.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} style={{ flexShrink: 0, color: 'var(--primary)' }} />
-                                    <span>Propose a revision on a branch, review the diff beside its verification impact, then merge to the baseline. A change that introduces a new failing check needs a recorded override to merge.</span>
+                                    <span>Propose a revision on a branch, review the diff beside its verification impact, then merge to the baseline. Revisions arriving from CAD are proposed automatically as a branch, and a human still approves the merge.</span>
                                 </li>
                                 <li>
                                     <CheckCircle2 size={16} style={{ flexShrink: 0, color: 'var(--primary)' }} />
-                                    <span>All of it on a real WebGL viewport: bolts, nuts, brackets, bearings, PCBs and sensors render as genuine procedural geometry — a hex nut has a drilled hole, not a placeholder cube — with click-to-select, drag-to-place assembly, explode view and shaded/wireframe/x-ray modes.</span>
+                                    <span>Design happens in your CAD seat, not here. The platform imports glTF/GLB/OBJ/STL revisions, derives mesh, triangle and bounding-box facts from the real geometry, and renders them in a read-only WebGL viewport with click-to-select, explode and shaded/wireframe/x-ray modes. Onshape, Fusion 360, SolidWorks PDM and CATIA connectors are present but simulated — no vendor credentials are configured.</span>
+                                </li>
+                                <li>
+                                    <CheckCircle2 size={16} style={{ flexShrink: 0, color: 'var(--primary)' }} />
+                                    <span>glTF, OBJ and STL carry no mass property, so mass for imported geometry is an explicit, opt-in estimate from bounding-box volume and an assumed density. It is labelled everywhere it appears, and it can raise a warning on a budget but never, on its own, a failure.</span>
                                 </li>
                             </ul>
                             <div className="tech-specs-box">
@@ -293,10 +297,11 @@ export default function DomainsPage() {
                                 <ul className="tech-specs-list">
                                     <li><span>Model:</span> <span>Systems graph — requirements &rarr; parts &rarr; tests</span></li>
                                     <li><span>Verification:</span> <span>Live budget evaluation, in-session</span></li>
-                                    <li><span>Change control:</span> <span>Branch / diff / review / merge</span></li>
-                                    <li><span>Renderer:</span> <span>WebGL (react-three-fiber)</span></li>
-                                    <li><span>Geometry:</span> <span>Procedural, per-part-type</span></li>
-                                    <li><span>Layouts:</span> <span>Viewport / Catalog / Model Review</span></li>
+                                    <li><span>Change control:</span> <span>Branch / diff / review / merge, human-approved</span></li>
+                                    <li><span>Change intake:</span> <span>File import + on-demand re-check</span></li>
+                                    <li><span>Vendor connectors:</span> <span>Simulated &mdash; no credentials</span></li>
+                                    <li><span>Renderer:</span> <span>WebGL (react-three-fiber), read-only</span></li>
+                                    <li><span>Geometry:</span> <span>Imported glTF / GLB / OBJ / STL</span></li>
                                 </ul>
                             </div>
                         </div>
