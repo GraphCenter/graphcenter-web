@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Section from '@/components/ui/Section';
 import SplitLayout from '@/components/ui/SplitLayout';
 import Button from '@/components/ui/Button';
+import { contactEmail } from '@/lib/contact';
 
 export const metadata: Metadata = {
     title: 'Investors | GraphCenter',
@@ -70,7 +71,9 @@ export default function InvestorsPage() {
                     For inquiries about GraphCenter&rsquo;s business, technology, or growth plans, reach our team directly.
                 </p>
                 <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                    <Button href="mailto:investors@graphcenter.ai" variant="primary">investors@graphcenter.ai</Button>
+                    {contactEmail('investors') && (
+                        <Button href={`mailto:${contactEmail('investors')}`} variant="primary">{contactEmail('investors')}</Button>
+                    )}
                     <Button href="/contact" variant="ghost">Contact the Team</Button>
                 </div>
             </Section>

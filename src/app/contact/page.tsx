@@ -1,5 +1,6 @@
 import ContactForm from "@/components/ContactForm";
 import Section from "@/components/ui/Section";
+import { contactEmail } from '@/lib/contact';
 
 export default function ContactPage() {
     return (
@@ -23,7 +24,7 @@ export default function ContactPage() {
                     <div style={{ marginTop: '4rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '2rem', textAlign: 'center' }}>
                         <div>
                             <h4 style={{ fontWeight: 600, fontSize: '1.05rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>Systems Strategy</h4>
-                            <p style={{ color: 'var(--text-muted)' }}>strategy@graphcenter.ai</p>
+                            <p style={{ color: 'var(--text-muted)' }}>{contactEmail('strategy') ?? 'Use the form above'}</p>
                         </div>
                         <div>
                             <h4 style={{ fontWeight: 600, fontSize: '1.05rem', color: 'var(--text-main)', marginBottom: '0.5rem' }}>Global Headquarters</h4>

@@ -18,7 +18,10 @@ export default function ContactForm() {
         setStatus('loading');
 
         try {
-            const response = await fetch('http://localhost:3001/contacts', {
+            // The site's own backend, on the same origin (vercel.json routes
+            // /_/backend to it). This posted to http://localhost:3001, which on
+            // the live site meant the visitor's own computer.
+            const response = await fetch(process.env.NEXT_PUBLIC_CONTACT_ENDPOINT || '/_/backend/contacts', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)

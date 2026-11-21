@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local SQLite databases hold submitted contact details; never commit them.
+*.db
+*.db-journal

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { contactEmail } from '@/lib/contact';
 import { ShieldCheck, Lock, Eye, ScrollText, Server, Scale } from 'lucide-react';
 import PoweredByBadge from '@/components/PoweredByBadge';
 import Section from '@/components/ui/Section';
@@ -76,7 +77,9 @@ export default function TrustPage() {
                 <div className="card-asymmetric" style={{ padding: '2rem', marginTop: '2rem' }}>
                     <h2 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '0.5rem', color: 'var(--text-main)' }}>Reporting a vulnerability</h2>
                     <p style={{ color: 'var(--text-muted)', fontSize: '14px', lineHeight: 1.6 }}>
-                        Email <span style={{ fontWeight: 600, color: 'var(--primary)' }}>security@graphcenter.ai</span> with details and reproduction steps. We acknowledge reports within three business days and will keep you updated through remediation. Please do not disclose publicly until a fix is released.
+                        {contactEmail('security')
+                            ? <>Email <span style={{ fontWeight: 600, color: 'var(--primary)' }}>{contactEmail('security')}</span> with details and reproduction steps.</>
+                            : <>Send details and reproduction steps through the <Link href="/contact" style={{ fontWeight: 600, color: 'var(--primary)' }}>contact form</Link>, marked &ldquo;Security&rdquo;.</>} We acknowledge reports within three business days and will keep you updated through remediation. Please do not disclose publicly until a fix is released.
                     </p>
                 </div>
 
