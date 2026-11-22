@@ -3,3 +3,6 @@ node_modules
 .env
 
 /generated/prisma
+
+# Derived at build by scripts/vercel-build.mjs
+prisma/postgres/
