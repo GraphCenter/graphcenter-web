@@ -18,6 +18,10 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Images are served as they are. Deployed as Vercel services, the site's
+  // /_next/image optimiser answered 404, so the logo never loaded; the only
+  // image is a 60 KB logo, which needs no resizing service.
+  images: { unoptimized: true },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
