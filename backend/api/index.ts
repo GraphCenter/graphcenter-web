@@ -11,6 +11,7 @@ import { configureApp } from '../src/setup';
  * bundle without its Nest dependencies.)
  */
 type Handler = (req: IncomingMessage, res: ServerResponse) => void;
+const ROUTE_PREFIX = '/_/backend';
 let handlerPromise: Promise<Handler> | undefined;
 
 async function createHandler(): Promise<Handler> {
@@ -28,5 +29,9 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     });
   }
   const instance = await handlerPromise;
+  // The site routes `/_/backend/*` here; the app's own routes start at `/`.
+  // Done here rather than trusting the service's path transform, which the
+  // first deployment showed was not applied.
+  if (req.url?.startsWith(ROUTE_PREFIX)) req.url = req.url.slice(ROUTE_PREFIX.length) || '/';
   instance(req, res);
 }
