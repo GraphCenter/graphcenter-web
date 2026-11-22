@@ -6,3 +6,6 @@ node_modules
 
 # Derived at build by scripts/vercel-build.mjs
 prisma/postgres/
+
+# Built output; Vercel builds the backend itself.
+/dist

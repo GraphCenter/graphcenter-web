@@ -1,0 +1,11 @@
+# Each service builds itself on Vercel; never upload local builds, secrets or databases.
+node_modules
+**/node_modules
+.next
+backend/dist
+.env
+.env.*
+**/.env
+**/.env.*
+*.db
+*.db-journal
